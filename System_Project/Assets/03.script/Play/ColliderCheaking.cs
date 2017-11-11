@@ -8,7 +8,7 @@ public class ColliderCheaking : MonoBehaviour
 		{
 			//transform.position = other.transform.position + new Vector3(0,0,0.5f);
 			transform.position = new Vector3(transform.position.x, 0, other.transform.position.z + 0.5f);
-			other.transform.tag = "Crash";	
+			//other.transform.tag = "Crash";	
 		}
 		return;
     }

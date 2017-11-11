@@ -112,15 +112,12 @@ public class GameManager : MonoBehaviour {
 			currentTime = (currentTime - (Time.deltaTime));
 
 			timerBar.fillAmount = currentTime / maxTime;
-			timerBar.color = Color.Lerp (new Color(1,0,0), new Color(0,0,1), currentTime / maxTime);
-			/*
-			timerBar.fillAmount = time / maxTime;
-
-			if((time / maxTime) < 0.5) // 50% yellow bar
-				timerBar.color = new Color (1, 1, 0);
-			else if ((time / maxTime) < 0.25) // 25% red bar
-				timerBar.color = new Color (1, 0, 0);
-			*/
+			//timerBar.color = Color.Lerp (new Color(1,0,0), new Color(0,1,0), currentTime / maxTime);
+	
+			if ((currentTime / maxTime) < 0.20) // 20% red bar
+				timerBar.color = Color.red;
+			else if((currentTime / maxTime) < 0.5) // 50% yellow bar
+				timerBar.color = Color.yellow;
 		}
 		else // time == 0
 			gameOver();

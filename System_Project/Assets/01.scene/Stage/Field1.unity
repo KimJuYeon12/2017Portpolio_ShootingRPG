@@ -618,11 +618,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 984648f77f0aea0489476557d0e97839, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxTime: 30
+  height: 20
   info: {fileID: 0}
   lv: 0
   manaText: {fileID: 1508020243}
   mana: 0
-  time: 0
+  currentTime: 0
   timerBar: {fileID: 1772696885}
   block: {fileID: 1960063261233708, guid: 71bcd50af9ea3b64f8d1f8a6b570eb23, type: 2}
   player: {fileID: 1646967560}
@@ -1429,14 +1431,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 983771097e24b7b4cb7231e90710c4a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stageLv: -1
   money: 0
   crystal: 0
+  stageLv: -1
+  subStageNum: 4
+  totalStage: 16
+  subStageOn: 
+  stageOn: 
+  skillNum: 6
   warriorSkill: 
   archerSkill: 
   magicianSkill: 
-  subStageOn: 
-  stageOn: 
+  warriorSlot: 
+  archerSlot: 
+  magicianSlot: 
   activePanelNum: 0
 --- !u!4 &1376982145
 Transform:

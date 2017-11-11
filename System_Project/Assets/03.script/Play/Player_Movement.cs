@@ -31,7 +31,7 @@ public class Player_Movement : MonoBehaviour, IDragHandler
         if (data.delta.x > 0)//오른쪽
         {
             rightRay = new Ray(Player.transform.position, Vector3.right);
-            if (Physics.Raycast(rightRay, 0.5f ,Layermask))
+            if (Physics.Raycast(rightRay, 0.6f ,Layermask))
             {
                 return;
             }
@@ -41,7 +41,7 @@ public class Player_Movement : MonoBehaviour, IDragHandler
         else// 왼쪽
         {
             leftRay = new Ray(Player.transform.position, Vector3.left);
-            if (Physics.Raycast(leftRay,0.5f, Layermask))
+            if (Physics.Raycast(leftRay,0.6f, Layermask))
             {
                 return;
             }
