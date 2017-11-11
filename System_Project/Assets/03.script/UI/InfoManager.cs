@@ -19,9 +19,13 @@ public class InfoManager : MonoBehaviour {
 		public int myStage;	// 플레이할 수 있는 최신 스테이지
 		public bool[] subStageOn, stageOn; // 스테이지 오픈 여부
 
-		public int[] warriorSkill, archerSkill, magicianSkill; // 각 직업별 스킬레벨 정보
-		public int[] warriorSlot, archerSlot, magicianSlot; // 각 직업별 스킬 슬롯 정보 
-															// 어떤 스킬이 어디에 등록?
+		public int[] warriorSkill_LV = new int[7]; // 각 직업별 스킬레벨 정보
+		public int[] archerSkill_LV = new int[7];
+		public int[] magicianSkill_LV = new int[7]; 
+		public int[] warriorSlot_pos = new int[7]; // 각 직업별 스킬 슬롯 정보 
+		public int[] archerSlot_pos = new int[7];  // 어떤 스킬이 어디에 등록?
+		public int[] magicianSlot_pos = new int[7];  
+													 
 	}
 	string filePath; // gameData 저장 경로
 
@@ -36,8 +40,8 @@ public class InfoManager : MonoBehaviour {
 	public bool[] subStageOn, stageOn; // 스테이지 오픈 여부
 
 	public int skillNum = 6; // 직업별 스킬 개수
-	public int[] warriorSkill, archerSkill, magicianSkill; // 각 직업별 스킬레벨 정보
-	public int[] warriorSlot, archerSlot, magicianSlot; // 각 직업별 스킬슬롯 정보
+	public int[] warriorSkill_LV, archerSkill_LV, magicianSkill_LV; // 각 직업별 스킬레벨 정보
+	public int[] warriorSlot_pos, archerSlot_pos, magicianSlot_pos; // 각 직업별 스킬슬롯 정보
 
 	public int activePanelNum; // 활성화된 패널 넘버 (스테이지 선택)
 
@@ -49,18 +53,16 @@ public class InfoManager : MonoBehaviour {
 
 		stageOn = new bool[stageMax];
 		subStageOn = new bool[totalStage + 1]; // +1 : dummy. array overflow 방지
+		activePanelNum = -1; // default, dummy value
 
-		skillNum += 1; // arr[1] ~ [n] 사용을 위해서
-		warriorSkill = new int[skillNum];
-		archerSkill = new int[skillNum];
-		magicianSkill = new int[skillNum];
+		skillNum = 7; // arr[1] ~ [n] 사용을 위해서 + 1
+		warriorSkill_LV = new int[skillNum];
+		archerSkill_LV = new int[skillNum];
+		magicianSkill_LV = new int[skillNum];
 
-		warriorSlot = new int[skillNum];
-		archerSlot = new int[skillNum];
-		magicianSlot = new int[skillNum];
-
-		loadMoney ();
-		loadSkill();
+		warriorSlot_pos = new int[skillNum];
+		archerSlot_pos = new int[skillNum];
+		magicianSlot_pos = new int[skillNum];
 	}
 
 	public void setPanel(int num)
@@ -117,20 +119,21 @@ public class InfoManager : MonoBehaviour {
 
 	public void saveSkill()
 	{
+		Debug.Log ("saveSkill start");
 		BinaryFormatter formatter = new BinaryFormatter ();
 		FileStream file = File.Create (filePath + "/Skill.dat");
 
 		GameData data = new GameData ();
 
 		for (int i = 1; i < skillNum; i++) {
-			data.warriorSkill [i] = warriorSkill [i];
-			data.archerSkill [i] = archerSkill [i];
-			data.magicianSkill [i] = magicianSkill [i];
+			data.warriorSkill_LV [i] = warriorSkill_LV [i];
+			data.archerSkill_LV [i] = archerSkill_LV [i];
+			data.magicianSkill_LV [i] = magicianSkill_LV [i];
 		}
 		for (int i = 1; i < skillNum; i++) {
-			data.warriorSlot [i] = warriorSlot [i];
-			data.archerSlot [i] = archerSlot [i];
-			data.magicianSlot [i] = magicianSlot [i];
+			data.warriorSlot_pos [i] = warriorSlot_pos [i];
+			data.archerSlot_pos [i] = archerSlot_pos [i];
+			data.magicianSlot_pos [i] = magicianSlot_pos [i];
 		}
 		
 		formatter.Serialize (file, data);
@@ -181,28 +184,26 @@ public class InfoManager : MonoBehaviour {
 			stageOn [0] = true;
 			subStageOn[0] = true;
 			myStage = 0; 
-			//activePanelNum = -1; // default, dummy value
 		}
 	}
 
 	public void loadSkill()
 	{
 		BinaryFormatter formatter = new BinaryFormatter ();
-
 		if (System.IO.File.Exists (filePath + "/Skill.dat")) {
 			FileStream file = File.Open (filePath + "/Skill.dat", FileMode.Open);
 
 			GameData data = (GameData)formatter.Deserialize (file);
 
-			for (int i = 1; i < skillNum; i++) {
-				warriorSkill [i] = data.warriorSkill [i];
-				archerSkill [i] = data.archerSkill [i];
-				magicianSkill [i] = data.magicianSkill [i];
+			for (int i = 1; i < warriorSkill_LV.Length; i++) {
+				warriorSkill_LV [i] = data.warriorSkill_LV [i];
+				archerSkill_LV [i] = data.archerSkill_LV [i];
+				magicianSkill_LV [i] = data.magicianSkill_LV [i];
 			}
 			for (int i = 1; i < skillNum; i++) {
-				warriorSlot [i] = data.warriorSlot [i];
-				archerSlot [i] = data.archerSlot [i];
-				magicianSlot [i] = data.magicianSlot [i];
+				warriorSlot_pos [i] = data.warriorSlot_pos [i];
+				archerSlot_pos [i] = data.archerSlot_pos [i];
+				magicianSlot_pos [i] = data.magicianSlot_pos [i];
 			}
 
 			file.Close ();
@@ -210,9 +211,12 @@ public class InfoManager : MonoBehaviour {
 		} else // 저장된 데이터가 없으면 기본값 세팅
 		{
 			for (int i = 1; i < skillNum; i++) {
-				warriorSkill [i] = 1;
-				archerSkill [i] = 1;
-				magicianSkill [i] = 1;
+				warriorSkill_LV [i] = 1;
+				archerSkill_LV [i] = 1;
+				magicianSkill_LV [i] = 1;
+				warriorSlot_pos[i] = 0;
+				archerSlot_pos[i] = 0;
+				magicianSlot_pos[i] = 0;
 			}
 		}
 	}

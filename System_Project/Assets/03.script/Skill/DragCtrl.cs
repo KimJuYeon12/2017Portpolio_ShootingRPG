@@ -16,12 +16,12 @@ public class DragCtrl : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 
 	public int[] slot; // 어떤 스킬이 등록되어 있는지 스킬 번호 저장
 	int skill_NO;
-	public int[] warriorSkill, archerSkill, magicianSkill; // 각 직업별 스킬레벨 정보
-	public int[] warriorSlot, archerSlot, magicianSlot; // 각 직업별 스킬슬롯 정보
+	//public int[] warriorSkill_LV, archerSkill_LV, magicianSkill_LV; // 각 직업별 스킬레벨 정보
+	//public int[] warriorSlot_pos, archerSlot_pos, magicianSlot_pos; // 각 직업별 스킬슬롯 정보
 
 	InfoManager im;
 	SkillPanelCtrl spc;
-	int skillNum;
+	public int skillNum;
 
 	// Use this for initialization
 	void Start () {
@@ -36,13 +36,13 @@ public class DragCtrl : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 		EmptyImg = Img.GetComponent<Image> ();
 		slot = new int[skillNum];
 
-		warriorSlot = new int[skillNum];
-		archerSlot = new int[skillNum];
-		magicianSlot = new int[skillNum];
+		//warriorSlot_pos  = new int[skillNum];
+		//archerSlot_pos = new int[skillNum];
+		//magicianSlot_pos = new int[skillNum];
 
-		warriorSkill = new int[skillNum];
-		archerSkill = new int[skillNum];
-		magicianSkill = new int[skillNum];
+		//warriorSkill_LV = new int[skillNum];
+		//archerSkill_LV = new int[skillNum];
+		//magicianSkill_LV = new int[skillNum];
 	}
 		
 	// 스킬 레벨 업
@@ -62,18 +62,19 @@ public class DragCtrl : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 
 					switch (spc._class) {
 					case 1:
-						warriorSkill[i] = ++im.warriorSkill[i];
-						lv.text = im.warriorSkill [i].ToString();
+						++im.warriorSkill_LV[i];
+						lv.text = im.warriorSkill_LV [i].ToString();
 						break;
 					case 2:
-						archerSlot[i] = ++im.archerSkill[i];
-						lv.text = im.archerSkill [i].ToString();
+						++im.archerSkill_LV[i];
+						lv.text = im.archerSkill_LV [i].ToString();
 						break;
 					case 3:
-						magicianSlot[i] = ++im.magicianSkill[i];
-						lv.text = im.magicianSkill[i].ToString();
+						++im.magicianSkill_LV[i];
+						lv.text = im.magicianSkill_LV[i].ToString();
 						break;
 					}
+					im.saveSkill ();
 				}
 			}
 		}
@@ -88,7 +89,7 @@ public class DragCtrl : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 		{
 			GameObject obj = res [0].gameObject.transform.parent.gameObject;
 			//Debug.Log ("hit : " + obj.name);
-			for (int i = 1; i <= 6; i++) 
+			for (int i = 1; i <= skillNum; i++) 
 			{
 				if (obj.name == "Skill_" + i) 
 				{
@@ -123,24 +124,27 @@ public class DragCtrl : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 		{
 			GameObject obj = res [0].gameObject;
 			//Debug.Log ("hit : " + obj.name);
-			for (int i = 1; i <= 6; i++) 
+			for (int i = 1; i <= skillNum; i++) 
 			{
 				if (obj.name == "Slot_" + i) 
 				{
 					if(EmptyImg.sprite != null)
 					{
 						obj.GetComponent<Image> ().sprite = EmptyImg.sprite;
+						Debug.Log ("skill link!!!!!!!!!!!");
 						switch (spc._class) {
 						case 1:
-							warriorSlot[i] = skill_NO; // Slot[0] ~ Slot[5]
+							im.warriorSlot_pos[i] = skill_NO; // Slot[0] ~ Slot[5]
+							Debug.Log("w_pos["+i+"] = "+skill_NO);
 							break;
 						case 2:
-							archerSlot[i] = skill_NO;
+							im.archerSlot_pos[i] = skill_NO;
 							break;
 						case 3:
-							magicianSlot[i] = skill_NO;
+							im.magicianSlot_pos[i] = skill_NO;
 							break;
 						}
+						im.saveSkill();
 						//Debug.Log ("slot["+i+"] = " + skill_NO);
 					}
 				}

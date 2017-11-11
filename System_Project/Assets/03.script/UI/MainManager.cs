@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MainManager : MonoBehaviour {
+
 	public void toAdventureScene()
 	{
 		SceneManager.LoadScene("Adventure");	
