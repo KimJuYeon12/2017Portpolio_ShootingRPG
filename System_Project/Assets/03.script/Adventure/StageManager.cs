@@ -6,15 +6,10 @@ using UnityEngine.EventSystems;
 
 public class StageManager : MonoBehaviour {
 
-	public InfoManager im;
+	InfoManager im;
 	public static int stageMax = 4; // 전체 스테이지 종류
 	public static int subStageNum = 4; // sub stage 개수
 	public static int totalStage = stageMax * 4;
-
-	static int myStage; // 플레이할 수 있는 최신 스테이지
-	public bool[] subStageOn;
-	public bool[] stageOn;
-	public int activePanelNum;
 
 	/*
 	enum Stage : int{
@@ -33,20 +28,76 @@ public class StageManager : MonoBehaviour {
 	void Start () 
 	{
 		im = GameObject.Find("InfoManager").GetComponent<InfoManager>();
+		im.loadStage ();
 
-		subStageOn = im.subStageOn;
-		stageOn = im.stageOn;
-		activePanelNum = im.activePanelNum;
+		panelActive (im.activePanelNum);
+		stageOpen (im.lastPlayLv);
+	}
 
-		panelActive (activePanelNum);
-		stageClear (im.stageLv);
+	// Scene Load시에 기존에 클리어한 스테이지 오픈
+	public void stageOpen(int clearLv)
+	{
+		// 기존에 이미 클리어된 부분
+		if(clearLv < 0) return; // 초기 default값 : -1
+		Debug.Log("maxClear : " + im.maxClear);
+		for (int i = 0; i <= im.maxClear; i++) 
+		{
+			Debug.Log ("substageicon[i] : " + i);
+			subStageIcon [i].color = Color.white;
+
+			if(i % subStageNum == 0) 
+				newStageOpen(im.maxClear);
+		}
+		// 방금 클리어한 스테이지
+		if(im.maxClear < clearLv)
+		{
+			im.maxClear = clearLv;
+			im.subStageOn[clearLv + 1] = true;
+			// stageOpenEffect();
+			subStageIcon [clearLv + 1].color = Color.white; // 클리어한 다음 맵 오픈
+
+			if((clearLv + 1) % subStageNum == 0) // 다음 스테이지로 넘어가면 스테이지버튼 오픈
+				newStageOpen(clearLv + 1);		 // ex) 0, 4, 8, 12.....	
+		}
+		im.saveStage ();
+		return;
+	}
+	/*
+	void nextStageOpen(int clearLv)
+	{
+		Debug.Log ("stage clear! : " + clearLv);
+
+		if(im.maxClear < clearLv)
+		{
+			im.maxClear = clearLv;
+			im.stageOn[clearLv + 1] = true;
+			// stageOpenEffect();
+			subStageIcon [im.maxClear + 1].color = Color.white; // 클리어한 다음 맵 오픈
+
+			if((im.maxClear + 1) % subStageNum == 0) // 다음 스테이지로 넘어가면 스테이지버튼 오픈
+			{									  	 // ex) 0, 4, 8, 12.....	
+				newStageOpen(im.maxClear + 1);
+			}
+		}
+		im.saveStage ();
+		return;
+	}
+*/
+	// stageIcon bright up
+	void newStageOpen(int clearLv)
+	{
+		int num = clearLv / subStageNum;
+		Debug.Log ("NEW STAGE OPEN!! : " + num);
+		im.stageOn [num] = true;
+		// stageOpenEffect();
+		stageIcon [num].GetComponent<Image>().color = Color.white;
 	}
 
 	public void panelActive(int num)
 	{
 		if (num == -1) return;
 
-		else if(stageOn[num]) // stageOn is true??
+		else if(im.stageOn[num]) // stageOn is true??
 		{
 			panel [num].SetActive (true);
 			im.setPanel (num);
@@ -58,41 +109,12 @@ public class StageManager : MonoBehaviour {
 	// sub stage select panel off
 	public void panelInActive()
 	{
-		if (activePanelNum == -1) return;
-		else if (panel [activePanelNum].activeSelf) {
-			Debug.Log("off panel : " + activePanelNum);
+		if (im.activePanelNum == -1) return;
+		else if (panel [im.activePanelNum].activeSelf) {
+			Debug.Log("off panel : " + im.activePanelNum);
 
-			panel [activePanelNum].SetActive (false);
+			panel [im.activePanelNum].SetActive (false);
 		}
 		return;
-	}
-
-	// stageLv : clear한 stage의 Lv info
-	public void stageClear(int stageLv)
-	{
-		Debug.Log ("stage clear! : " + stageLv);
-
-		myStage = stageLv + 1;
-		if (!subStageOn [myStage]) 
-		{
-			subStageOn [myStage] = true;
-											  // next field open
-			if ((myStage % subStageNum) == 0) // 0, 4, 8, 12 ...
-			newStageOpen (myStage);
-		}
-
-		for (int i = 0; i <= myStage; i++) {
-			subStageIcon [i].color = new Color (1, 1, 1);
-		}
-		return;
-	}
-
-	// stageIcon bright up
-	void newStageOpen(int myLv)
-	{
-		int num = myLv / subStageNum;
-		Debug.Log ("NEW STAGE OPEN!! : " + num);
-		stageOn [num] = true;
-		stageIcon [num].GetComponent<Image>().color = new Color (1, 1, 1);
 	}
 }

@@ -15,9 +15,10 @@ public class InfoManager : MonoBehaviour {
 		public int money;	// 소지한 게임 머니
 		public int crystal;	// 소지한 캐시 머니
 
-		public int stageLv;	// 방금 클리어한 맵의 스테이지 레벨
-		public int myStage;	// 플레이할 수 있는 최신 스테이지
-		public bool[] subStageOn, stageOn; // 스테이지 오픈 여부
+		public int lastPlayLv;	// 방금 클리어한 맵의 스테이지 레벨
+		public int maxClear;	// 플레이할 수 있는 최신 스테이지
+		public bool[] subStageOn  = new bool[17]; // 스테이지 오픈 여부
+		public bool[] stageOn = new bool[4]; 
 
 		public int[] warriorSkill_LV = new int[7]; // 각 직업별 스킬레벨 정보
 		public int[] archerSkill_LV = new int[7];
@@ -32,8 +33,8 @@ public class InfoManager : MonoBehaviour {
 	public int money;
 	public int crystal;
 
-	public int stageLv = -1;
-	int myStage; // 플레이할 수 있는 최신 스테이지
+	public int lastPlayLv;
+	public int maxClear; // 플레이할 수 있는 최신 스테이지
 	public static int stageMax = 4; // 전체 스테이지 종류
 	public int subStageNum = 4; // sub stage 개수
 	public int totalStage = stageMax * 4; // sub stage로 계산한 전체 스테이지 수
@@ -103,8 +104,8 @@ public class InfoManager : MonoBehaviour {
 		FileStream file = File.Create (filePath + "/Stage.dat");
 
 		GameData data = new GameData ();
-		data.stageLv = stageLv;
-		data.myStage = myStage;
+		data.lastPlayLv = lastPlayLv;
+		data.maxClear = maxClear;
 
 		for (int i = 0; i < stageMax; i++)
 			data.stageOn [i] = stageOn [i];
@@ -169,8 +170,8 @@ public class InfoManager : MonoBehaviour {
 			FileStream file = File.Open (filePath + "/Stage.dat", FileMode.Open);
 
 			GameData data = (GameData)formatter.Deserialize (file);
-			stageLv = data.stageLv;
-			myStage = data.myStage;
+			lastPlayLv = data.lastPlayLv;
+			maxClear = data.maxClear;
 
 			for (int i = 0; i < stageMax; i++)
 				data.stageOn [i] = stageOn [i];
@@ -183,7 +184,8 @@ public class InfoManager : MonoBehaviour {
 		{
 			stageOn [0] = true;
 			subStageOn[0] = true;
-			myStage = 0; 
+			lastPlayLv = -1; 
+			maxClear = -1;
 		}
 	}
 

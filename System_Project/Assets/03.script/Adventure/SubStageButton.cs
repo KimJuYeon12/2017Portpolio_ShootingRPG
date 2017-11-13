@@ -6,11 +6,11 @@ using UnityEngine.EventSystems;
 
 public class SubStageButton : MonoBehaviour, IPointerClickHandler {
 
-	public InfoManager info;
+	public InfoManager im;
 
 	void Start()
 	{
-		info = GameObject.Find("InfoManager").GetComponent<InfoManager>();
+		im = GameObject.Find("InfoManager").GetComponent<InfoManager>();
 	}
 
 	// change Scene to game Play stage

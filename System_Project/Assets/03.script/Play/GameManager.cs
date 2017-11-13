@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour {
 	public int maxTime = 30; // test용 원래는 120
 	public int height = 20; // test용 미정
 
-	public InfoManager info;
+	public InfoManager im;
 	public int lv;
 	public Text manaText;
 	public int mana;
@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		info = GameObject.Find("InfoManager").GetComponent<InfoManager>();
+		im = GameObject.Find("InfoManager").GetComponent<InfoManager>();
 		currentTime = maxTime;
 	}
 	
@@ -96,8 +96,8 @@ public class GameManager : MonoBehaviour {
 
 	public void stageClear()
 	{
-		Debug.Log ("clear stage : " + lv);
-		info.stageLv = lv;
+		im.lastPlayLv = lv;
+		im.saveStage ();
 		SceneManager.LoadScene ("Adventure");
 	}
 
