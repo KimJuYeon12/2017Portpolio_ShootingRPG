@@ -69,7 +69,8 @@ public class Warrior_Attack_Management : MonoBehaviour
 	// Update is called once per frame
 	void FixedUpdate ()
     {
-        Grab.Fire();//그랩샷
+        //Grab.Fire();//그랩샷
+        Knock_Back();
     }
 
     

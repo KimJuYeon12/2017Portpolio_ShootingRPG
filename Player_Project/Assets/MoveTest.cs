@@ -8,6 +8,17 @@ public class MoveTest : MonoBehaviour {
     public bool Is_Velocity;
 
 
+    private IEnumerator Test()
+    {
+        while(true)
+        {
+            transform.Translate(-Vector3.forward/4f);
+            Debug.Log("werwerwer");
+            yield return null;
+        }
+    }
+
+
     void Awake()
     {
         Is_Velocity = true;
@@ -16,11 +27,19 @@ public class MoveTest : MonoBehaviour {
     
     // Use this for initialization
 	void Start () {
-		
+
+        if(Is_Velocity) rb.velocity = -rb.transform.forward * speed;
 	}
-	
+	private void OnEnable()
+    {
+        StartCoroutine(Test());
+    }
+    private void OnDisable()
+    {
+        StopAllCoroutines();
+    }
+
 	// Update is called once per frame
 	void Update () {
-            if(Is_Velocity) rb.velocity = -rb.transform.forward * speed;
     }
 }

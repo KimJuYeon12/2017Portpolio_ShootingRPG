@@ -47,15 +47,22 @@ public class Grab_Swing : MonoBehaviour
 
         Enemy_rb = other.GetComponent<Rigidbody>();//집어온 것의 리지드바디 가져오기
 
-        //임시적인 에너미의 움직임스크립트 가져오기
-        Enemy_Move_Scripts = other.GetComponent<MoveTest>();
+        ////임시적인 에너미의 움직임스크립트 가져오기
+        //Enemy_Move_Scripts = other.GetComponent<MoveTest>();
 
-        //만일 에너미에 에너미 무브스크립트가 없었다면 여기서 거름
-        if (Enemy_Move_Scripts == null) return;
+        ////만일 에너미에 에너미 무브스크립트가 없었다면 여기서 거름
+        //if (Enemy_Move_Scripts == null) return;
 
-        //잡힌 에너미의 속도 없애기
-        Enemy_Move_Scripts.Is_Velocity = false;
+        ////잡힌 에너미의 속도 없애기
+        //Enemy_Move_Scripts.Is_Velocity = false;
         Enemy_rb.velocity = Vector3.zero;
+
+        foreach (var v in other.GetComponents<MonoBehaviour>())
+        {
+            v.StopAllCoroutines();
+        }
+
+
 
         //자식으로 달기
         Enemy_rb.transform.SetParent(transform);

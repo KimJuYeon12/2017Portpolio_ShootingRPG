@@ -33,25 +33,46 @@ public class Knock_back : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         if (other.tag != "Enemy") return;
-        Enemy_Move_Scripts = other.GetComponent<MoveTest>();
-        Enemy_Move_Scripts.Is_Velocity = false;//적의 움직임을 중단시킨다.
+
+
+        //Enemy_Move_Scripts = other.GetComponent<MoveTest>();
+        //Enemy_Move_Scripts.Is_Velocity = false;//적의 움직임을 중단시킨다.
+
+
+        //적 움직임 중단
+        foreach (var v in other.GetComponents<MonoBehaviour>())
+        {
+            v.enabled = false;
+        }
+
         Rigidbody rb = other.GetComponent<Rigidbody>();
         Enemy_rb = rb;
-        rb.velocity = Vector3.zero;
+        rb.velocity = Vector3.zero;//속도 중단
+
+
         Enemy_rb.AddExplosionForce(500f, transform.position, 5f);
         Debug.Log("aaa");
         Knock_back_col.enabled = false;
 
         //여기서 코루틴 써서 0.5초올라가고 0.5초기절후 다시 내려오는걸로
-        StartCoroutine(After_Collider());
+        StartCoroutine(After_Collider(other));
     }
 
-    IEnumerator After_Collider()
+
+
+
+    IEnumerator After_Collider(Collider other)
     {//여기서 코루틴 써서 0.5초올라가고 0.5초기절후 다시 내려오는걸로
         yield return new WaitForSeconds(0.5f);//0.5초 동안 올라감
         Enemy_rb.velocity = Vector3.zero;
         yield return new WaitForSeconds(1f);//1초기절
-        Enemy_rb.velocity = -Vector3.forward;
+        //Enemy_rb.velocity = -Vector3.forward;
+
+        foreach (var v in other.GetComponents<MonoBehaviour>())
+        {
+            v.enabled = true;
+        }
+
     }
 }
 

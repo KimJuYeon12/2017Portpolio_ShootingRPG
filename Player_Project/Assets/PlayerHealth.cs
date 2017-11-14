@@ -2,7 +2,8 @@
 using UnityEngine.UI;
 
 
-public class Health : MonoBehaviour {
+public class PlayerHealth : Health
+{
 
     public Slider Player_Slider;
     public Image CurrentHP_color;
@@ -17,8 +18,8 @@ public class Health : MonoBehaviour {
 
     //warrior
     public bool SuperAmmor = false;
-    
-    
+
+
     //활성화 될때 세팅되는 부분
     private void OnEnable()
     {
@@ -57,7 +58,7 @@ public class Health : MonoBehaviour {
     //컴포넌트의 isTrigger과는 별개로 아래 메소드 두개가 모두 동작함
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag != "Enemy" && other.tag !="Bolt") return;
+        if (other.tag != "Enemy" && other.tag != "Bolt") return;
 
 
         //여기서 각종 탄알과 적에 대한 데미지를 구분해서 적용시켜야한다.
@@ -69,7 +70,7 @@ public class Health : MonoBehaviour {
 
 
         if (other.tag == "Enemy")
-        { 
+        {
             //적의 본체에 부딫힌 경우 이 데미지를 주자.
             TakeDamage(EnemyCollaspedDamage);
         }
