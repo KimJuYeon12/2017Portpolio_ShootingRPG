@@ -2,6 +2,8 @@
 using UnityEngine.UI;
 
 
+namespace Player
+{ 
 public class PlayerHealth : Health
 {
 
@@ -82,3 +84,4 @@ public class PlayerHealth : Health
     //private void OnCollisionEnter(Collision other)
 }
 
+}

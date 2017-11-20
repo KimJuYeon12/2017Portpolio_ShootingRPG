@@ -20,6 +20,8 @@ namespace Player
         float JumpEndTime = -500f;
         private Ray rightRay;
         private Ray leftRay;
+
+        public Animator Anim;
         void Awake()
         {
         
@@ -66,6 +68,7 @@ namespace Player
             if (!CanJump) return;
             if (On_Drag) { On_Drag = false; return;}
             StartCoroutine(Up());
+            Anim.SetTrigger("Jump");
         }
         IEnumerator Up()
         {
