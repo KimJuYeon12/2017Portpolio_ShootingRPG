@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SkillButton : MonoBehaviour {
-	
-	public int buttonNum;
+namespace jiyong{
+	public class SkillButton : MonoBehaviour {
+
+		public int buttonNum;
+	}
 }

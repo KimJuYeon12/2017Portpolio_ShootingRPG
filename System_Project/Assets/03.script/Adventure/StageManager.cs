@@ -4,14 +4,15 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class StageManager : MonoBehaviour {
+namespace jiyong{
+	public class StageManager : MonoBehaviour {
 
-	InfoManager im;
-	public static int stageMax = 4; // 전체 스테이지 종류
-	public static int subStageNum = 4; // sub stage 개수
-	public static int totalStage = stageMax * 4;
+		InfoManager im;
+		public static int stageMax = 4; // 전체 스테이지 종류
+		public static int subStageNum = 4; // sub stage 개수
+		public static int totalStage = stageMax * 4;
 
-	/*
+		/*
 	enum Stage : int{
 		stage_1 = 1, stage_2, stage_3, stage_4,  //field
 		stage_5, stage_6, stage_7, stage_8, 	 //fire
@@ -20,49 +21,49 @@ public class StageManager : MonoBehaviour {
 	};
 	*/
 
-	public GameObject[] stageIcon = new GameObject[stageMax]; // stage image
-	public Image[] subStageIcon = new Image[totalStage]; // sub_stage array
-	public GameObject[] panel = new GameObject[stageMax]; // sub_stage select panel
+		public GameObject[] stageIcon = new GameObject[stageMax]; // stage image
+		public Image[] subStageIcon = new Image[totalStage]; // sub_stage array
+		public GameObject[] panel = new GameObject[stageMax]; // sub_stage select panel
 
-	// Use this for initialization
-	void Start () 
-	{
-		im = GameObject.Find("InfoManager").GetComponent<InfoManager>();
-		im.loadStage ();
-
-		panelActive (im.activePanelNum);
-		stageOpen (im.lastPlayLv);
-	}
-
-	// Scene Load시에 기존에 클리어한 스테이지 오픈
-	public void stageOpen(int clearLv)
-	{
-		// 기존에 이미 클리어된 부분
-		if(clearLv < 0) return; // 초기 default값 : -1
-		Debug.Log("maxClear : " + im.maxClear);
-		for (int i = 0; i <= im.maxClear; i++) 
+		// Use this for initialization
+		void Start () 
 		{
-			Debug.Log ("substageicon[i] : " + i);
-			subStageIcon [i].color = Color.white;
+			im = GameObject.Find("InfoManager").GetComponent<InfoManager>();
+			im.loadStage ();
 
-			if(i % subStageNum == 0) 
-				newStageOpen(im.maxClear);
+			panelActive (im.activePanelNum);
+			stageOpen (im.lastPlayLv);
 		}
-		// 방금 클리어한 스테이지
-		if(im.maxClear < clearLv)
+
+		// Scene Load시에 기존에 클리어한 스테이지 오픈
+		public void stageOpen(int clearLv)
 		{
-			im.maxClear = clearLv;
-			im.subStageOn[clearLv + 1] = true;
-			// stageOpenEffect();
-			subStageIcon [clearLv + 1].color = Color.white; // 클리어한 다음 맵 오픈
+			// 기존에 이미 클리어된 부분
+			if(clearLv < 0) return; // 초기 default값 : -1
+			Debug.Log("maxClear : " + im.maxClear);
+			for (int i = 0; i <= im.maxClear; i++) 
+			{
+				Debug.Log ("substageicon[i] : " + i);
+				subStageIcon [i].color = Color.white;
 
-			if((clearLv + 1) % subStageNum == 0) // 다음 스테이지로 넘어가면 스테이지버튼 오픈
-				newStageOpen(clearLv + 1);		 // ex) 0, 4, 8, 12.....	
+				if(i % subStageNum == 0) 
+					newStageOpen(im.maxClear);
+			}
+			// 방금 클리어한 스테이지
+			if(im.maxClear < clearLv)
+			{
+				im.maxClear = clearLv;
+				im.subStageOn[clearLv + 1] = true;
+				// stageOpenEffect();
+				subStageIcon [clearLv + 1].color = Color.white; // 클리어한 다음 맵 오픈
+
+				if((clearLv + 1) % subStageNum == 0) // 다음 스테이지로 넘어가면 스테이지버튼 오픈
+					newStageOpen(clearLv + 1);		 // ex) 0, 4, 8, 12.....	
+			}
+			im.saveStage ();
+			return;
 		}
-		im.saveStage ();
-		return;
-	}
-	/*
+		/*
 	void nextStageOpen(int clearLv)
 	{
 		Debug.Log ("stage clear! : " + clearLv);
@@ -83,38 +84,39 @@ public class StageManager : MonoBehaviour {
 		return;
 	}
 */
-	// stageIcon bright up
-	void newStageOpen(int clearLv)
-	{
-		int num = clearLv / subStageNum;
-		Debug.Log ("NEW STAGE OPEN!! : " + num);
-		im.stageOn [num] = true;
-		// stageOpenEffect();
-		stageIcon [num].GetComponent<Image>().color = Color.white;
-	}
-
-	public void panelActive(int num)
-	{
-		if (num == -1) return;
-
-		else if(im.stageOn[num]) // stageOn is true??
+		// stageIcon bright up
+		void newStageOpen(int clearLv)
 		{
-			panel [num].SetActive (true);
-			im.setPanel (num);
-			Debug.Log("on panel : " + num);
+			int num = clearLv / subStageNum;
+			Debug.Log ("NEW STAGE OPEN!! : " + num);
+			im.stageOn [num] = true;
+			// stageOpenEffect();
+			stageIcon [num].GetComponent<Image>().color = Color.white;
 		}
-		return;
-	}
 
-	// sub stage select panel off
-	public void panelInActive()
-	{
-		if (im.activePanelNum == -1) return;
-		else if (panel [im.activePanelNum].activeSelf) {
-			Debug.Log("off panel : " + im.activePanelNum);
+		public void panelActive(int num)
+		{
+			if (num == -1) return;
 
-			panel [im.activePanelNum].SetActive (false);
+			else if(im.stageOn[num]) // stageOn is true??
+			{
+				panel [num].SetActive (true);
+				im.setPanel (num);
+				Debug.Log("on panel : " + num);
+			}
+			return;
 		}
-		return;
+
+		// sub stage select panel off
+		public void panelInActive()
+		{
+			if (im.activePanelNum == -1) return;
+			else if (panel [im.activePanelNum].activeSelf) {
+				Debug.Log("off panel : " + im.activePanelNum);
+
+				panel [im.activePanelNum].SetActive (false);
+			}
+			return;
+		}
 	}
 }

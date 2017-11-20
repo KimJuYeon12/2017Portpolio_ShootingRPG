@@ -3,27 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class StageButton : MonoBehaviour, IPointerClickHandler {
+namespace jiyong{
+	public class StageButton : MonoBehaviour, IPointerClickHandler {
 
-	public int stageNum;
+		public int stageNum;
 
-	StageManager sm;
+		StageManager sm;
 
-	void Start()
-	{
-		sm = GameObject.Find ("StageManager").GetComponent<StageManager> ();
-	}
+		void Start()
+		{
+			sm = GameObject.Find ("StageManager").GetComponent<StageManager> ();
+		}
 
-	// panelActive ctrl
-	public void OnPointerClick(PointerEventData data)
-	{
-		sm.panelInActive ();
-		sm.panelActive (stageNum);
-	}
+		// panelActive ctrl
+		public void OnPointerClick(PointerEventData data)
+		{
+			sm.panelInActive ();
+			sm.panelActive (stageNum);
+		}
 
 
 
-	/*
+		/*
 	public void panelActive()
 	{
 		Debug.Log ("click");
@@ -31,4 +32,5 @@ public class StageButton : MonoBehaviour, IPointerClickHandler {
 			sm.panel[stageNum].SetActive(true);
 	}
 	*/
+	}
 }
