@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
 
-	//public int maxTime = 120;
 	public int maxTime = 30; // test용 원래는 120
 	public int height = 20; // test용 미정
 
@@ -17,19 +16,15 @@ public class GameManager : MonoBehaviour {
 	public float currentTime;
 	public Image timerBar;
 	public GameObject block;
-
 	public GameObject player;
 	SortedDictionary<int, GameObject> dic = new SortedDictionary<int, GameObject>();
 
-	// Use this for initialization
 	void Start () {
 		im = GameObject.Find("InfoManager").GetComponent<InfoManager>();
 		currentTime = maxTime;
 	}
-	
-	// Update is called once per frame
+
 	void Update () {
-		//timeInfo.text = time.ToString("####");
 		manaText.text = mana.ToString ();
 		UpdateTimer ();
 	}
@@ -85,7 +80,6 @@ public class GameManager : MonoBehaviour {
 		//block.transform = new Vector3(Mathf.Round(death.x), 0, death.z);
 	}
 	*/
-
 	// 테스트용 임시 함수
 	public void createBlock()
 	{
@@ -101,8 +95,7 @@ public class GameManager : MonoBehaviour {
 		SceneManager.LoadScene ("Adventure");
 	}
 
-	void gameOver()
-	{
+	void gameOver()	{
 		Debug.Log ("game OVer!!!!!!!!!!!!!!!!!!!!!!!!!!");
 	}
 
@@ -121,6 +114,5 @@ public class GameManager : MonoBehaviour {
 		}
 		else // time == 0
 			gameOver();
-		
 	}
 }
