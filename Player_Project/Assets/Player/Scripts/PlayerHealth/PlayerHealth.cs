@@ -57,8 +57,8 @@ public class PlayerHealth : Health
     //컴포넌트의 isTrigger과는 별개로 아래 메소드 두개가 모두 동작함
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag != "Enemy" && other.tag != "EnemyBolt") return;
-            Debug.Log(other.tag);
+        if (other.tag != "Enemy" && other.tag != "Bolt") return;
+
 
         //여기서 각종 탄알과 적에 대한 데미지를 구분해서 적용시켜야한다.
         //부딫힌 물체의 스크립트에 접근해서 데미지값을 받아오자.
