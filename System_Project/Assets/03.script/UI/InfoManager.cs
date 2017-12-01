@@ -21,7 +21,7 @@ namespace jiyong{
 			public bool[] subStageOn  = new bool[17]; // 스테이지 오픈 여부
 			public bool[] stageOn = new bool[4]; 
 
-			public int playerType;
+			//public int playerType;
 			public int[] warriorSkill_LV = new int[7]; // 각 직업별 스킬레벨 정보
 			public int[] archerSkill_LV = new int[7];
 			public int[] magicianSkill_LV = new int[7]; 
@@ -43,7 +43,7 @@ namespace jiyong{
 		public bool[] subStageOn, stageOn; // 스테이지 오픈 여부
 
 		public int skillNum = 6; // 직업별 스킬 개수
-		public int playerType = 0; // 0 : 전사, 1 : 궁수, 2 : 마법사
+		public int playerType = 1; // 1 : 전사, 2 : 궁수, 3 : 마법사
 		public int[] warriorSkill_LV, archerSkill_LV, magicianSkill_LV; // 각 직업별 스킬레벨 정보
 		public int[] warriorSlot_pos, archerSlot_pos, magicianSlot_pos; // 각 직업별 스킬슬롯 정보
 
@@ -59,7 +59,7 @@ namespace jiyong{
 			subStageOn = new bool[totalStage + 1]; // +1 : dummy. array overflow 방지
 			activePanelNum = -1; // default, dummy value
 
-			playerType = 0;
+			playerType = 1;
 			skillNum = 7; // arr[1] ~ [n] 사용을 위해서 + 1
 			warriorSkill_LV = new int[skillNum];
 			archerSkill_LV = new int[skillNum];
@@ -110,7 +110,7 @@ namespace jiyong{
 			GameData data = new GameData ();
 			data.lastPlayLv = lastPlayLv;
 			data.maxClear = maxClear;
-			data.playerType = playerType;
+			//data.playerType = playerType;
 
 			for (int i = 0; i < stageMax; i++)
 				data.stageOn [i] = stageOn [i];
@@ -177,7 +177,7 @@ namespace jiyong{
 				GameData data = (GameData)formatter.Deserialize (file);
 				lastPlayLv = data.lastPlayLv;
 				maxClear = data.maxClear;
-				playerType = data.playerType;
+				//playerType = data.playerType;
 
 				for (int i = 0; i < stageMax; i++)
 					data.stageOn [i] = stageOn [i];

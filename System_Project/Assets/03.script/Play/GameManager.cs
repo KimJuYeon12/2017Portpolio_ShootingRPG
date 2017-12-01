@@ -17,11 +17,15 @@ namespace jiyong{
 		public float currentTime;
 		public Image timerBar;
 		public GameObject block;
-		public GameObject player;
+		public Transform player;
+
 		SortedDictionary<int, GameObject> dic = new SortedDictionary<int, GameObject>();
 
-		void Start () {
+
+		void Awake(){
 			im = GameObject.Find("InfoManager").GetComponent<InfoManager>();
+			spawnPlayer (im.playerType);
+			player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
 			currentTime = maxTime;
 		}
 
@@ -82,6 +86,24 @@ namespace jiyong{
 		//block.transform = new Vector3(Mathf.Round(death.x), 0, death.z);
 	}
 	*/
+		private void spawnPlayer (int type) 
+		{
+			switch (type) 
+			{
+				case 1: // 전사
+					Instantiate(Resources.Load ("Player 1") as GameObject); // 프리팹에서 오브젝트 가져오기
+					break;
+				case 2: // 궁수
+					Instantiate(Resources.Load ("Player 2") as GameObject); // 프리팹에서 오브젝트 가져오기
+					break;
+				case 3: // 마법사
+					Instantiate(Resources.Load ("Player 3") as GameObject); // 프리팹에서 오브젝트 가져오기
+					break;
+				default: // defalut // 오류값일때
+					Instantiate(Resources.Load ("Player 1") as GameObject); // 프리팹에서 오브젝트 가져오기
+					break;
+			}
+		}
 		// 테스트용 임시 함수
 		public void createBlock()
 		{

@@ -7,7 +7,7 @@ namespace jiyong{
 	public class Player_Movement : MonoBehaviour, IDragHandler
 	{
 		private int Layermask = 1 << 11;
-		public GameObject Player;
+		public Transform Player;
 		Rigidbody Player_rb;
 		float L_LimitX = 0;
 		float R_LimitX = 9;
@@ -20,13 +20,16 @@ namespace jiyong{
 		float JumpEndTime = -500f;
 		private Ray rightRay;
 		private Ray leftRay;
-		void Awake()
-		{
 
+		void Awake() {
 			On_Drag = false;
-			Player_rb = Player.GetComponent<Rigidbody>();
-
 		}
+
+		void Start() {
+			Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+			Player_rb = Player.GetComponent<Rigidbody>();
+		}
+
 		public void OnDrag(PointerEventData data)
 		{
 			On_Drag = true;
@@ -67,6 +70,7 @@ namespace jiyong{
 			if (On_Drag) { On_Drag = false; return;}
 			StartCoroutine(Up());
 		}
+
 		IEnumerator Up()
 		{
 			for(float i=0;i<0.3f;i = i+ Time.deltaTime*1.3f)
@@ -75,6 +79,5 @@ namespace jiyong{
 				yield return null;
 			}
 		}
-
 	}
 }
