@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class IntroManager : MonoBehaviour {
+namespace jiyong{
+	public class IntroManager : MonoBehaviour {
 
-	public void Click()
-	{
-		SceneManager.LoadScene ("Main");
+		public void Click()
+		{
+			SceneManager.LoadScene ("Main");
+		}
 	}
 }

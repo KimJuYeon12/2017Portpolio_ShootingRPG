@@ -3,39 +3,47 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SkillManager : MonoBehaviour {
+namespace jiyong{
 
-	InfoManager im = new InfoManager();
-	public static int skillNum = 6;
-	public Text[] warrior;
-	public Text[] archer;
-	public Text[] magician;
+	public class SkillManager : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		im = GameObject.Find ("InfoManager").GetComponent<InfoManager> ();
-		skillNum = im.skillNum;
-		//warrior = new Text[skillNum];
-		//archer = new Text[skillNum];
-		//magician = new Text[][skillNum];
+		InfoManager im = new InfoManager();
+		int skillNum;
+		public Text[] warrior;
+		public Text[] archer;
+		public Text[] magician;
+		public Image[] warriorSlot, archerSlot, magicianSlot;
 
-//		Text[] warriorLV = new Text[warrior.Length];
-//		Text[] archerLV = new Text[archer.Length];
-//		Text[] magicianLV = new Text[magician.Length];
-
-		for (int i = 1; i < warrior.Length; i++) {
-			warrior [i].text = im.warriorSkill [i].ToString();
+		void Awake()
+		{
+			im = GameObject.Find ("InfoManager").GetComponent<InfoManager> ();
+			im.loadSkill ();
+			skillNum = im.skillNum;
 		}
-		for (int i = 1; i < archer.Length; i++) {
-			archer [i].text = im.archerSkill [i].ToString();
+
+		// Use this for initialization
+		void Start () {
+
+			LoadData ();
 		}
-		for (int i = 1; i < magician.Length; i++) {
-			magician [i].text = im.magicianSkill [i].ToString();
+
+		void LoadData()
+		{
+			for (int i = 1; i < skillNum; i++) {
+				warrior [i].text = im.warriorSkill_LV [i].ToString();
+				if(im.warriorSlot_pos[i] == 0) continue; // 0이면 없는 것
+				warriorSlot[i].sprite = warrior [im.warriorSlot_pos[i]].transform.GetComponentInParent<Image> ().sprite;
+			}
+			for (int i = 1; i < skillNum; i++) {
+				archer [i].text = im.archerSkill_LV [i].ToString();
+				if(im.archerSlot_pos[i] == 0) continue; // 0이면 없는 것
+				archerSlot[i].sprite = archer [im.archerSlot_pos[i]].transform.GetComponentInParent<Image> ().sprite;
+			}
+			for (int i = 1; i < skillNum; i++) {
+				magician [i].text = im.magicianSkill_LV [i].ToString();
+				if(im.magicianSlot_pos[i] == 0) continue; // 0이면 없는 것
+				magicianSlot[i].sprite = magician [im.magicianSlot_pos[i]].transform.GetComponentInParent<Image> ().sprite;
+			}
 		}
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
 	}
 }

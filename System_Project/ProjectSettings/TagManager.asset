@@ -8,7 +8,6 @@ TagManager:
   - SkillSlot
   - Drop
   - Bottom
-  - Crash
   - Warrior
   - Archer
   - Magician
@@ -25,7 +24,7 @@ TagManager:
   - Ground
   - 
   - 
-  - 
+  - Block
   - 
   - 
   - 

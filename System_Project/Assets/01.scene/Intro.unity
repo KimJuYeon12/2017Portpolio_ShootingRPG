@@ -526,15 +526,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 983771097e24b7b4cb7231e90710c4a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stageLv: -1
   money: 0
   crystal: 0
-  SkillNum: 6
-  warriorSkill: 
-  archerSkill: 
-  magicianSkill: 
+  stageLv: -1
+  subStageNum: 4
+  totalStage: 16
   subStageOn: 
   stageOn: 
+  skillNum: 6
+  warriorSkill_LV: 
+  archerSkill_LV: 
+  magicianSkill_LV: 
+  warriorSlot_pos: 
+  archerSlot_pos: 
+  magicianSlot_pos: 
   activePanelNum: 0
 --- !u!4 &1372410765
 Transform:

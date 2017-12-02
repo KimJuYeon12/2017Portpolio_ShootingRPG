@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class BackButton : MonoBehaviour {
-	public void toMainScene()
-	{
-		SceneManager.LoadScene("Main");	
+namespace jiyong{
+	public class BackButton : MonoBehaviour {
+		public void toMainScene()
+		{
+			SceneManager.LoadScene("Main");	
+		}
 	}
 }
