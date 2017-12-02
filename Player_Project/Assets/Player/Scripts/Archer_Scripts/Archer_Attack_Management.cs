@@ -40,7 +40,7 @@ namespace Player
         {
             Shot_Spawn_Point = gameObject;
             GuidedShot_Lev = 5;
-            MultiShot_Lev = 5;//우선 임의의 값을 넣음
+            MultiShot_Lev = 1;//우선 임의의 값을 넣음
             LazerShot_Lev = 3;
             Explode_Lev = 1;
 
@@ -83,6 +83,7 @@ namespace Player
         {
             if (Input.GetButtonDown("Fire1"))
             {
+                Debug.Log("aaaaa");
                 Mul.Shot();
             }
         }

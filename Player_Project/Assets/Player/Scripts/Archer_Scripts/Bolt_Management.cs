@@ -41,7 +41,7 @@ public class Bolt_Management : MonoBehaviour {
 
 
         //일반적인 총알이 발사되었고 적이 일반탄에 맞았을 경우의 처리
-        else if (other.tag != "Player"  && other.tag != "Bolt" && Bolt_attribute == "Nomal")
+        else if (other.tag != "Player"  && other.tag != "PlayerBolt" && Bolt_attribute == "Nomal" && other.tag != "EnemyBolt")
         {
             Destroy(gameObject);
         }

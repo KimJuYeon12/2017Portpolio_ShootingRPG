@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+namespace Player
+{ 
 public class Damage : MonoBehaviour {
 
     public float damage = 10f;
@@ -15,4 +17,5 @@ public class Damage : MonoBehaviour {
 	void Update () {
 		
 	}
+}
 }

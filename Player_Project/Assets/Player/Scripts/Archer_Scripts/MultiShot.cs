@@ -29,6 +29,7 @@ namespace Player
             //루프를 돌면서 총알을 생성
             for (int i = 0; i < Shot_Level; i++)
             {
+                Debug.Log("aaaasd");
                 //총알을 생성해서 초기 위치를 설정
                 MonoBehaviour.Instantiate(Bolt, Shot_Spawn_Point.transform.position, Shot_Spawn.transform.rotation);
                 Shot_Spawn.transform.Rotate(new Vector3(0, Angle, 0));

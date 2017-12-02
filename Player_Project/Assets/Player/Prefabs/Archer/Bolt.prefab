@@ -22,9 +22,10 @@ GameObject:
   - component: {fileID: 135240999298092110}
   - component: {fileID: 114753424143077562}
   - component: {fileID: 54488048268785546}
+  - component: {fileID: 114085268092942698}
   m_Layer: 0
   m_Name: Bolt
-  m_TagString: Bolt
+  m_TagString: PlayerBolt
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -87,6 +88,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &114085268092942698
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1356763348783228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4cc45be13b0cb9469be1bd172ee8461, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 20
 --- !u!114 &114753424143077562
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -57,7 +57,7 @@ public class PlayerHealth : Health
     //컴포넌트의 isTrigger과는 별개로 아래 메소드 두개가 모두 동작함
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag != "Enemy" && other.tag != "Bolt") return;
+        if (other.tag != "Enemy" && other.tag != "EnemyBolt") return;
 
 
         //여기서 각종 탄알과 적에 대한 데미지를 구분해서 적용시켜야한다.
@@ -77,11 +77,14 @@ public class PlayerHealth : Health
 
         else//탄알에 부딫힌 경우
         {
-            //탄알마다에 있는 데미지 스크립트를 가져와서 해당 데미지를 가져온다.
-            TakeDamage(other.gameObject.GetComponent<Damage>().damage);
+                //탄알마다에 있는 데미지 스크립트를 가져와서 해당 데미지를 가져온다.
+                TakeDamage(other.gameObject.GetComponent<Enemy.Damage>().damage);
         }
     }
-    //private void OnCollisionEnter(Collision other)
+    private void OnCollisionEnter(Collision other)
+    {
+            OnTriggerEnter(other.collider);
+    }
 }
 
 }
