@@ -7,7 +7,7 @@ namespace Player
     public class Player_Movement : MonoBehaviour, IDragHandler
     {
         private int Layermask = 1 << 11;
-        public GameObject Player;
+        private GameObject Player;
         Rigidbody Player_rb;
         float L_LimitX = 0;
         float R_LimitX = 9;
@@ -26,9 +26,15 @@ namespace Player
         {
         
             On_Drag = false;
-            Player_rb = Player.GetComponent<Rigidbody>();
-        
         }
+        void Start()
+        {
+            Player = GameObject.FindGameObjectWithTag("Player");
+            Player_rb = Player.GetComponent<Rigidbody>();
+
+        }
+
+
         public void OnDrag(PointerEventData data)
         {
             On_Drag = true;
@@ -65,6 +71,7 @@ namespace Player
 
         public void Click()
         {
+            Debug.Log("asdasdas");
             if (!CanJump) return;
             if (On_Drag) { On_Drag = false; return;}
             StartCoroutine(Up());

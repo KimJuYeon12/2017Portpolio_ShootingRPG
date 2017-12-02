@@ -23,8 +23,8 @@ namespace jiyong{
 
 
 		void Awake(){
-			im = GameObject.Find("InfoManager").GetComponent<InfoManager>();
-			spawnPlayer (im.playerType);
+			//im = GameObject.Find("InfoManager").GetComponent<InfoManager>();
+			//spawnPlayer (im.playerType);
 			player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
 			currentTime = maxTime;
 		}

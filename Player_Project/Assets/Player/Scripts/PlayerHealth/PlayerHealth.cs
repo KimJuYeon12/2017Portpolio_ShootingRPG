@@ -10,7 +10,7 @@ public class PlayerHealth : Health
     public Slider Player_Slider;
     public Image CurrentHP_color;
 
-    private Color MaxHP_color = Color.green;//맥스일때의 색깔
+    private Color MaxHP_color = Color.red;//맥스일때의 색깔
     private Color MinHP_color = Color.red;//민일때의 색깔
     private bool Is_Dead = false;
 
@@ -50,7 +50,7 @@ public class PlayerHealth : Health
     {
         Player_Slider.value = CurrentHP;
 
-        CurrentHP_color.color = Color.Lerp(MinHP_color, MaxHP_color, CurrentHP / StartHP);
+        //CurrentHP_color.color = Color.Lerp(MinHP_color, MaxHP_color, CurrentHP / StartHP);
     }
 
 
