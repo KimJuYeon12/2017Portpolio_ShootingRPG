@@ -10,7 +10,7 @@ namespace Player
         private GameObject Player;
         Rigidbody Player_rb;
         float L_LimitX = 0;
-        float R_LimitX = 9;
+        float R_LimitX = 10;
 
         public float Power;
         bool On_Drag;
@@ -66,7 +66,7 @@ namespace Player
         void My_Clamp()
         {
             if (Player_rb.position.x < 0) Player.transform.position = new Vector3(0.01f, Player_rb.position.y, Player_rb.position.z);
-            else Player.transform.position = new Vector3(8.99f, Player_rb.position.y, Player_rb.position.z);
+            else Player.transform.position = new Vector3(9.99f, Player_rb.position.y, Player_rb.position.z);
         }
 
         public void Click()

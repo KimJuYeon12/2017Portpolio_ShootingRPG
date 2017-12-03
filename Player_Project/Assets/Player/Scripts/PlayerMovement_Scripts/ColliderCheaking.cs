@@ -7,7 +7,7 @@ namespace Player
     {
         void OnCollisionEnter(Collision other)
         {
-            if (other.transform.tag != "New") return;
+            if (other.transform.tag != "Drop") return;
             gameObject.transform.position = other.transform.position + new Vector3(0,0,0.55f);
             //other.transform.tag = "Resource";
         }
