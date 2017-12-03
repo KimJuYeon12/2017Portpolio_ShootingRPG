@@ -9,6 +9,9 @@ namespace Enemy
         public float StartHP = 100f;//시작 HP
         public float CurrentHP;//현재 HP
 
+        public GameObject dieParticle;
+
+
         private void Awake()
         {
             CurrentHP = StartHP;
@@ -25,8 +28,9 @@ namespace Enemy
             }
         }
 
-        private void OnDeath()
+        public void OnDeath()
         {
+            Debug.Log("qdsdqwdsfwefdsf!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
             if (transform.tag == "Player")
             {
                 gameObject.SetActive(false);
@@ -36,8 +40,15 @@ namespace Enemy
             if (gameObject.transform.parent)
             {
                 Destroy(gameObject.transform.parent.gameObject);
-                Debug.Log("aawefdsferdfacefiaefjerioio2jioio");
+                Debug.Log("부모 오브젝트까지 같이 사라짐");
             }
+
+            if (dieParticle != null)
+            {
+                Debug.Log("11111111111111111111111111");
+                Destroy(Instantiate(dieParticle, transform.position, Quaternion.identity), 1.5f);
+            }
+
             Destroy(gameObject);
         }   
 

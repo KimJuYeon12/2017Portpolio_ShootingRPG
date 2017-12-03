@@ -6,10 +6,13 @@ namespace Enemy
 {
     public class EnemyHealth : Health
     {
-        float PlayerCollaspedDamage = 100;
-        private void OnDeath()
+
+        public float PlayerCollaspedDamage = 100;
+
+         public new void OnDeath()
         {
             //gameObject.SetActive(false);
+
             Destroy(gameObject);
         }
 

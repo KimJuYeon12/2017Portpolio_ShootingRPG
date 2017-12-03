@@ -6,11 +6,19 @@ namespace Enemy
 {
     public class EnemyMoveDistance : MonoBehaviour
     {
+        [HideInInspector]
         public float moveDistance = 5f;
+
         public float speed = 3f;
+        public GameObject mainCamera;
+
+        public float forwardDist = 5f;
+        public float backwardDist = 5f;
+        public float bossCenterPosZAdder = 10f;
 
         private Vector3 initPos;
         private float moveDist;
+        private Vector3 bossCenterPos;
 
         // Use this for initialization
         //private void Start()
@@ -19,10 +27,15 @@ namespace Enemy
 
         //    StartCoroutine(c_MovePattern());
         //}
+        private void Awake()
+        {
+            mainCamera = Camera.main.gameObject;
+        }
+
 
         private void OnEnable()
         {
-            initPos = transform.position;
+            //initPos = transform.position;
             StartCoroutine(c_MovePattern());
         }
 
@@ -35,10 +48,10 @@ namespace Enemy
         {
             while (gameObject.activeSelf)
             {
-                yield return StartCoroutine(c_MoveDistance(-transform.forward));
+                //yield return StartCoroutine(c_MoveDistance(-transform.forward));
+                yield return StartCoroutine(c_MoveForward());
 
-                yield return StartCoroutine(c_MoveBack());
-                yield return null;
+                yield return StartCoroutine(c_MoveBackward());
             }
         }
 
@@ -56,19 +69,38 @@ namespace Enemy
             }
         }
 
-        private IEnumerator c_MoveBack()
+        private IEnumerator c_MoveForward()
         {
-            while (transform.position != initPos)
+            bossCenterPos = mainCamera.transform.position
+                + new Vector3(0f, -mainCamera.transform.position.y, 0f);
+
+            while (transform.position != bossCenterPos)
             {
-                transform.position = Vector3.MoveTowards(transform.position, initPos, speed * Time.deltaTime);
+                bossCenterPos = mainCamera.transform.position
+            + new Vector3(0f, -mainCamera.transform.position.y, -forwardDist + bossCenterPosZAdder);
+
+                transform.position = Vector3.MoveTowards(transform.position,
+                    bossCenterPos, speed * Time.deltaTime);
 
                 yield return null;
             }
         }
 
-        // Update is called once per frame
-        private void Update()
+        private IEnumerator c_MoveBackward()
         {
+            bossCenterPos = mainCamera.transform.position
+                + new Vector3(0f, -mainCamera.transform.position.y, 0f);
+
+            while (transform.position != bossCenterPos)
+            {
+                bossCenterPos = mainCamera.transform.position
+            + new Vector3(0f, -mainCamera.transform.position.y, backwardDist + bossCenterPosZAdder);
+
+                transform.position = Vector3.MoveTowards(transform.position,
+                    bossCenterPos, speed * Time.deltaTime);
+
+                yield return null;
+            }
         }
     }
 }

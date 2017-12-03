@@ -182,7 +182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9187d8791192e264d831e10c026c88d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  patternMissile: {fileID: 1678327418229828, guid: 03dcb4f5172d92f478118a29ada7770a,
+  patternMissile: {fileID: 1582972272076110, guid: afc45c243016c3a4a9fc1f8833484967,
     type: 2}
   patternIntervalTime: 1
 --- !u!114 &114935582204747504
@@ -198,6 +198,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveDistance: 5
   speed: 3
+  mainCamera: {fileID: 0}
+  forwardDist: 5
+  backwardDist: 5
+  bossCenterPosZAdder: 10
 --- !u!114 &114996561972180922
 MonoBehaviour:
   m_ObjectHideFlags: 1

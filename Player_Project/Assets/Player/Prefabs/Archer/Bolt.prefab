@@ -111,6 +111,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aacf06c3ccc451348aac433921c21f59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Bolt_Particle: {fileID: 1743689321952162, guid: bd9e457bfc172e74eaa642bd1cd86751,
+    type: 2}
   Bolt_attribute: 
 --- !u!135 &135240999298092110
 SphereCollider:
