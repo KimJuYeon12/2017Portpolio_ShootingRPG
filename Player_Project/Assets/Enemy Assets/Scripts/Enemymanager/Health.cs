@@ -46,9 +46,9 @@ namespace Enemy
             if (dieParticle != null)
             {
                 Debug.Log("11111111111111111111111111");
-                Destroy(Instantiate(dieParticle, transform.position, Quaternion.identity), 1.5f);
+                Destroy(Instantiate(dieParticle, transform.position, dieParticle.transform.rotation), 1.5f);
             }
-
+          
             Destroy(gameObject);
         }   
 

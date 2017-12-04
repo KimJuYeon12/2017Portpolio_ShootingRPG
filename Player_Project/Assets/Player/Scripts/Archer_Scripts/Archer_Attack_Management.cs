@@ -6,6 +6,7 @@ namespace Player
 { 
     public class Archer_Attack_Management : MonoBehaviour {
 
+        public GameObject GuidedBolt;
         public GameObject Bolt;
         public GameObject Shot_Spawn;
         public static GameObject Shot_Spawn_Point;
@@ -46,7 +47,7 @@ namespace Player
 
 
             Mul = new MultiShot(Bolt,Shot_Spawn,gameObject,MultiShot_Lev);
-            Guided = new GuidedShot(Bolt, Shot_Spawn, gameObject, GuidedShot_Lev, GuidedShot_ac);
+            Guided = new GuidedShot(GuidedBolt, Shot_Spawn, gameObject, GuidedShot_Lev, GuidedShot_ac);
             Lazer_Shot = new Layzer_Trap_Shot(Bolt, Shot_Spawn, gameObject, LazerShot_Lev,Lazer);
             Explode_Shot = new Explode_Trap_Shot(Bolt, Shot_Spawn, gameObject, LazerShot_Lev,Explode);
 
@@ -54,7 +55,7 @@ namespace Player
 	    // Update is called once per frame
         void FixedUpdate () 
         {
-            Mul_Shot();
+            Guided_Shot();
         }
 
 
