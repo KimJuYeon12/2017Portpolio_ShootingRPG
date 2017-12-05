@@ -11,7 +11,6 @@ namespace jiyong{
 		public int height = 20; // test용 미정
 
 		public InfoManager im;
-		public int lv;
 		public Text manaText;
 		public int mana;
 		public float currentTime;
@@ -23,8 +22,8 @@ namespace jiyong{
 
 
 		void Awake(){
-			//im = GameObject.Find("InfoManager").GetComponent<InfoManager>();
-			//spawnPlayer (im.playerType);
+			im = GameObject.Find("InfoManager").GetComponent<InfoManager>();
+			spawnPlayer (im.playerType);
 			player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
 			currentTime = maxTime;
 		}
@@ -90,18 +89,18 @@ namespace jiyong{
 		{
 			switch (type) 
 			{
-				case 1: // 전사
-					Instantiate(Resources.Load ("Player 1") as GameObject); // 프리팹에서 오브젝트 가져오기
-					break;
-				case 2: // 궁수
-					Instantiate(Resources.Load ("Archer") as GameObject); // 프리팹에서 오브젝트 가져오기
-					break;
-				case 3: // 마법사
-					Instantiate(Resources.Load ("Player 3") as GameObject); // 프리팹에서 오브젝트 가져오기
-					break;
-				default: // defalut // 오류값일때
-					Instantiate(Resources.Load ("Player 1") as GameObject); // 프리팹에서 오브젝트 가져오기
-					break;
+			case 1: // 전사
+				Instantiate(Resources.Load ("Player 1") as GameObject); // 프리팹에서 오브젝트 가져오기
+				break;
+			case 2: // 궁수
+				Instantiate(Resources.Load ("Player 2") as GameObject); // 프리팹에서 오브젝트 가져오기
+				break;
+			case 3: // 마법사
+				Instantiate(Resources.Load ("Player 3") as GameObject); // 프리팹에서 오브젝트 가져오기
+				break;
+			default: // defalut // 오류값일때
+				Instantiate(Resources.Load ("Player 1") as GameObject); // 프리팹에서 오브젝트 가져오기
+				break;
 			}
 		}
 		// 테스트용 임시 함수
@@ -114,9 +113,17 @@ namespace jiyong{
 
 		public void stageClear()
 		{
-			im.lastPlayLv = lv;
-			im.saveStage ();
+			im.saveStage (); // 스테이지에 넘어올 때 im에 기록한 lastPlayLv을 데이터로 저장
+			// getMoney(); // 스테이지에 따른 자원 획득
+
 			SceneManager.LoadScene ("Adventure");
+		}
+
+		// 스테이지에 따른 자원 획득
+		void getMoney(){ 
+			//im.money += ;
+			//im.crystal += ;
+			// im.saveMoney();
 		}
 
 		void gameOver()	{

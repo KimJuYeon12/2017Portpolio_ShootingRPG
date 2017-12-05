@@ -371,7 +371,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 144d4d974ed94f44ab8f36a883b087e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  info: {fileID: 0}
+  im: {fileID: 0}
+  Lv: 1
 --- !u!1 &37093093
 GameObject:
   m_ObjectHideFlags: 0
@@ -678,7 +679,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 144d4d974ed94f44ab8f36a883b087e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  info: {fileID: 0}
+  im: {fileID: 0}
+  Lv: 0
 --- !u!222 &72683029
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -806,7 +808,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 144d4d974ed94f44ab8f36a883b087e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  info: {fileID: 0}
+  im: {fileID: 0}
+  Lv: 2
 --- !u!1 &266917692
 GameObject:
   m_ObjectHideFlags: 0
@@ -944,7 +947,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 144d4d974ed94f44ab8f36a883b087e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  info: {fileID: 0}
+  im: {fileID: 0}
+  Lv: 0
 --- !u!222 &305010230
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1151,10 +1155,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ace538846826b654c8bba8ea2874614b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  im: {fileID: 0}
-  subStageOn: 
-  stageOn: 
-  activePanelNum: 0
   stageIcon:
   - {fileID: 1175590313}
   - {fileID: 9120334}
@@ -1696,7 +1696,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 144d4d974ed94f44ab8f36a883b087e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  info: {fileID: 0}
+  im: {fileID: 0}
+  Lv: 0
 --- !u!1 &719861588
 GameObject:
   m_ObjectHideFlags: 0
@@ -1927,7 +1928,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 144d4d974ed94f44ab8f36a883b087e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  info: {fileID: 0}
+  im: {fileID: 0}
+  Lv: 0
 --- !u!1 &766365069
 GameObject:
   m_ObjectHideFlags: 0
@@ -2125,7 +2127,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 144d4d974ed94f44ab8f36a883b087e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  info: {fileID: 0}
+  im: {fileID: 0}
+  Lv: 0
 --- !u!222 &912221542
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2566,7 +2569,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 144d4d974ed94f44ab8f36a883b087e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  info: {fileID: 0}
+  im: {fileID: 0}
+  Lv: 0
 --- !u!222 &1029698603
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2817,7 +2821,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 144d4d974ed94f44ab8f36a883b087e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  info: {fileID: 0}
+  im: {fileID: 0}
+  Lv: 0
 --- !u!222 &1178551908
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2945,7 +2950,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 144d4d974ed94f44ab8f36a883b087e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  info: {fileID: 0}
+  im: {fileID: 0}
+  Lv: 0
 --- !u!114 &1188712703
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3026,7 +3032,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 144d4d974ed94f44ab8f36a883b087e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  info: {fileID: 0}
+  im: {fileID: 0}
+  Lv: 0
 --- !u!222 &1212057216
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3453,7 +3460,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 144d4d974ed94f44ab8f36a883b087e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  info: {fileID: 0}
+  im: {fileID: 0}
+  Lv: 3
 --- !u!1 &1484895444
 GameObject:
   m_ObjectHideFlags: 0
@@ -3624,7 +3632,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 144d4d974ed94f44ab8f36a883b087e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  info: {fileID: 0}
+  im: {fileID: 0}
+  Lv: 0
 --- !u!1 &1602153990
 GameObject:
   m_ObjectHideFlags: 0
@@ -3719,7 +3728,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 144d4d974ed94f44ab8f36a883b087e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  info: {fileID: 0}
+  im: {fileID: 0}
+  Lv: 0
 --- !u!1 &1618861843
 GameObject:
   m_ObjectHideFlags: 0
@@ -3882,7 +3892,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 144d4d974ed94f44ab8f36a883b087e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  info: {fileID: 0}
+  im: {fileID: 0}
+  Lv: 0
 --- !u!222 &1712907576
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4010,7 +4021,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 144d4d974ed94f44ab8f36a883b087e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  info: {fileID: 0}
+  im: {fileID: 0}
+  Lv: 0
 --- !u!1 &1826314453
 GameObject:
   m_ObjectHideFlags: 0
