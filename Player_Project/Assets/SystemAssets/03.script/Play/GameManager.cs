@@ -26,11 +26,21 @@ namespace jiyong{
 			spawnPlayer (im.playerType);
 			player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
 			currentTime = maxTime;
+			setSkillImage (); // 직업 & 스킬등록에 따른 스킬슬롯 이미지 변경
 		}
 
 		void Update () {
 			manaText.text = mana.ToString ();
 			UpdateTimer ();
+		}
+
+		void setSkillImage() {
+			Image SkillBtn = new Image[2];
+			SkillBtn [0] = GameObject.Find ("Skill").GetComponent<Image> ();
+			SkillBtn [1] = GameObject.Find ("Skill (1)").GetComponent<Image> ();
+			SkillBtn [2] = GameObject.Find ("Skill (2)").GetComponent<Image> ();
+
+
 		}
 
 		// num개만큼 상단 블럭 삭제 // 스킬 사용 시 호출
