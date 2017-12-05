@@ -9,6 +9,7 @@ namespace Enemy
     {
         public GameObject explosion;
         public string playerTag = "Player";
+        public string groundTag = "Bottom";
         public float lastTime = 1f;
 
         // Use this for initialization
@@ -19,7 +20,7 @@ namespace Enemy
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.gameObject.tag == playerTag)
+            if (other.gameObject.tag == playerTag || other.tag == groundTag)
             {
                 Destroy(gameObject);
             }

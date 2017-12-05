@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-
+using jiyong;
 namespace Enemy
 {
     public class Health : MonoBehaviour
@@ -10,11 +10,13 @@ namespace Enemy
         public float CurrentHP;//현재 HP
 
         public GameObject dieParticle;
-
+        private GameManager GM;
 
         private void Awake()
         {
             CurrentHP = StartHP;
+            GM = GameObject.Find("GameManager").GetComponent<GameManager>();
+
         }
 
         //데미지입음
@@ -45,11 +47,12 @@ namespace Enemy
 
             if (dieParticle != null)
             {
-                Debug.Log("11111111111111111111111111");
                 Destroy(Instantiate(dieParticle, transform.position, dieParticle.transform.rotation), 1.5f);
             }
           
+            GM.createBlock(transform.position);
             Destroy(gameObject);
+
         }   
 
         //private void OnCollisionEnter(Collision other)

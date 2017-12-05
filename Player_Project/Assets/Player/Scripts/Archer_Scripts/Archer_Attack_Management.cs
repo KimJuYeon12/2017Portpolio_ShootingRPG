@@ -55,7 +55,7 @@ namespace Player
 	    // Update is called once per frame
         void FixedUpdate () 
         {
-            Guided_Shot();
+            Mul_Shot();
         }
 
 
