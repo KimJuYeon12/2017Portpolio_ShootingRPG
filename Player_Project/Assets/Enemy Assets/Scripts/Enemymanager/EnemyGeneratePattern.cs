@@ -35,11 +35,11 @@ public class EnemyGeneratePattern : MonoBehaviour
     public float bossIntervalWaitTime = 1f;
 
     public float bossMoveSpeed = 10f;
-
+    
     private GameObject[] enemy;
     private GameObject boss;
     
-    public float[] enemyRespawnTime = { 2f, 4f, 6f }; //수정
+    public float[] enemyRespawnTime = { 1f, 2f, 3f }; //수정
 
     private GameObject mainCamera;
 

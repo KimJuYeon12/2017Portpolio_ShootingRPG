@@ -14,8 +14,6 @@ namespace Player
 
         void OnCollisionStay(Collision other)
         {
-
-            Debug.Log("qweqweqweq");
             Player_Movement.CanJump = true;
         }
         void OnCollisionExit(Collision other)

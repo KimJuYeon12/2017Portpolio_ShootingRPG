@@ -114,10 +114,10 @@ namespace jiyong{
 			}
 		}
 		// 테스트용 임시 함수
-		public void createBlock()
+		public void createBlock(Vector3 EnemyPos)
 		{
-			Vector3 pos = player.transform.position;
-			Instantiate(block, new Vector3(Mathf.Round(pos.x),0,pos.z + 10), Quaternion.identity);
+			Vector3 pos = EnemyPos;
+			Instantiate(block, new Vector3(Mathf.Round(pos.x),0,pos.z), Quaternion.identity);
 			mana++;
 		}
 

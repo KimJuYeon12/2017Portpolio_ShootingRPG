@@ -36,6 +36,7 @@ public class GuidedShot : ArcherShot
     //처음에 타겟을 계산 하는 부분
     public int Set_Target()
     {
+        GameObject Player = GameObject.FindGameObjectWithTag("Player");
         TargetArr = GameObject.FindGameObjectsWithTag("Enemy");
 
         float min_Len = Vector3.Distance(Shot_Spawn.transform.position, TargetArr[0].transform.position);
@@ -45,7 +46,7 @@ public class GuidedShot : ArcherShot
         for (int i = 1; i < TargetArr.Length; i++)
         {
             new_Len = Vector3.Distance(Shot_Spawn.transform.position,TargetArr[i].transform.position);
-            if (new_Len < min_Len)
+            if (new_Len < min_Len && (Player.transform.position.z+5 < TargetArr[i].transform.position.z))
             {
                 min_idx = i;
                 min_Len = new_Len;
@@ -96,8 +97,9 @@ public class GuidedShot : ArcherShot
 
             for (float j = 0.0f; j < 2f; j = j + Time.deltaTime)
             {
-            Bolt.transform.position = Vector3.Lerp(Bolt.transform.position, TargetArr[idx].transform.position, 0.1f);
-            yield return null;
+                Bolt.transform.LookAt(TargetArr[idx].transform);               
+                Bolt.transform.position = Vector3.Lerp(Bolt.transform.position, TargetArr[idx].transform.position, 0.08f);
+                yield return null;
 
                 if (!Bolt) break;
                  if (Vector3.Distance(Bolt.transform.position, TargetArr[idx].transform.position) < 0.5f)
