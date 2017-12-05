@@ -8,6 +8,7 @@ namespace jiyong{
 	public class SubStageButton : MonoBehaviour, IPointerClickHandler {
 
 		public InfoManager im;
+		public int Lv;
 
 		void Start()
 		{
@@ -17,10 +18,12 @@ namespace jiyong{
 		// change Scene to game Play stage
 		public void OnPointerClick(PointerEventData data)
 		{
-
-			string buttonName = gameObject.name;
-			SceneManager.LoadScene(buttonName);
-
+			if((im.maxClear + 1) >= Lv) 
+			{
+				im.lastPlayLv = Lv; // 플레이하는 스테이지 레벨을 im에 기록
+				string buttonName = gameObject.name;
+				SceneManager.LoadScene(buttonName);
+			}
 		}
 
 	}

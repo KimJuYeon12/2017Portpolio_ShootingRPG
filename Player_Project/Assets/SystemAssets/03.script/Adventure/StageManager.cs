@@ -38,57 +38,38 @@ namespace jiyong{
 		// Scene Load시에 기존에 클리어한 스테이지 오픈
 		public void stageOpen(int clearLv)
 		{
-			// 기존에 이미 클리어된 부분
-			if(clearLv < 0) return; // 초기 default값 : -1
-			Debug.Log("maxClear : " + im.maxClear);
-			for (int i = 0; i <= im.maxClear; i++) 
-			{
-				Debug.Log ("substageicon[i] : " + i);
-				subStageIcon [i].color = Color.white;
-
-				if(i % subStageNum == 0) 
-					newStageOpen(im.maxClear);
-			}
 			// 방금 클리어한 스테이지
-			if(im.maxClear < clearLv)
+			if(im.maxClear <= clearLv)
 			{
 				im.maxClear = clearLv;
+				Debug.Log ("NEW STAGE OPEN!!!!!!!!!!!!! :    " + (clearLv + 1));
 				im.subStageOn[clearLv + 1] = true;
 				// stageOpenEffect();
-				subStageIcon [clearLv + 1].color = Color.white; // 클리어한 다음 맵 오픈
+				//subStageIcon [clearLv + 1].color = Color.white; // 클리어한 다음 맵 오픈
 
 				if((clearLv + 1) % subStageNum == 0) // 다음 스테이지로 넘어가면 스테이지버튼 오픈
 					newStageOpen(clearLv + 1);		 // ex) 0, 4, 8, 12.....	
 			}
 			im.saveStage ();
+
+			// 기존에 이미 클리어된 부분
+			for (int i = 0; i <= im.maxClear; i++) 
+			{
+				Debug.Log ("BRIGHT SUBSTAGE!!!!!!!!!      " + (i+1));
+				subStageIcon [i + 1].color = Color.white;
+
+				if(i % subStageNum == 0) 
+					newStageOpen(i);
+				//newStageOpen(im.maxClear);
+			}
 			return;
 		}
-		/*
-	void nextStageOpen(int clearLv)
-	{
-		Debug.Log ("stage clear! : " + clearLv);
 
-		if(im.maxClear < clearLv)
-		{
-			im.maxClear = clearLv;
-			im.stageOn[clearLv + 1] = true;
-			// stageOpenEffect();
-			subStageIcon [im.maxClear + 1].color = Color.white; // 클리어한 다음 맵 오픈
-
-			if((im.maxClear + 1) % subStageNum == 0) // 다음 스테이지로 넘어가면 스테이지버튼 오픈
-			{									  	 // ex) 0, 4, 8, 12.....	
-				newStageOpen(im.maxClear + 1);
-			}
-		}
-		im.saveStage ();
-		return;
-	}
-*/
 		// stageIcon bright up
 		void newStageOpen(int clearLv)
 		{
 			int num = clearLv / subStageNum;
-			Debug.Log ("NEW STAGE OPEN!! : " + num);
+			Debug.Log (" ! ! ! ! ! !! !NEW STAGE OPEN! ! ! ! ! !! : " + num);
 			im.stageOn [num] = true;
 			// stageOpenEffect();
 			stageIcon [num].GetComponent<Image>().color = Color.white;
@@ -102,7 +83,7 @@ namespace jiyong{
 			{
 				panel [num].SetActive (true);
 				im.setPanel (num);
-				Debug.Log("on panel : " + num);
+				//Debug.Log("on panel : " + num);
 			}
 			return;
 		}
@@ -112,7 +93,7 @@ namespace jiyong{
 		{
 			if (im.activePanelNum == -1) return;
 			else if (panel [im.activePanelNum].activeSelf) {
-				Debug.Log("off panel : " + im.activePanelNum);
+				//Debug.Log("off panel : " + im.activePanelNum);
 
 				panel [im.activePanelNum].SetActive (false);
 			}
