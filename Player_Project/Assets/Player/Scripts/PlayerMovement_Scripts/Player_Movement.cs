@@ -8,7 +8,7 @@ namespace Player
     {
         private int Layermask = 1 << 11;
         private GameObject Player;
-        public Rigidbody Player_rb;
+        Rigidbody Player_rb;
         float L_LimitX = 0;
         float R_LimitX = 10;
 
@@ -57,7 +57,7 @@ namespace Player
                 }
                 Player.transform.Translate(new Vector3(Mathf.Max(data.delta.x, -3f) * Power, 0, 0));
             }
-            Debug.Log("플레이어의 포지션"+Player_rb.position.x);
+            //Debug.Log("플레이어의 포지션"+Player_rb.position.x);
             if (Player_rb.position.x >= L_LimitX && Player_rb.position.x <= R_LimitX) return;//0이상 9이하
         
             My_Clamp();

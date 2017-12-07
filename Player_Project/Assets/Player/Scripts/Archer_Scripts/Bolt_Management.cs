@@ -22,16 +22,18 @@ public class Bolt_Management : MonoBehaviour {
     // Use this for initialization
 	void Start () {
 
-        //기본적으로 4초가 지나면 자동적으로 탄알을 제거한다.
-        Destroy(gameObject, 4f);
+            //기본적으로 4초가 지나면 자동적으로 탄알을 제거한다.
+            Destroy(gameObject, 2f);
 
-        //탄알의 기본속도를 지정
-        rb.velocity = rb.transform.forward * speed;   
+            //탄알의 기본속도를 지정
+            rb.velocity = rb.transform.forward * speed;   
     }
 	
     void OnTriggerEnter(Collider other)
     {
-            if (other.tag == "PlayerBolt") return;
+            if (other.tag == "PlayerBolt" || other.tag == "Player" || other.tag == "Outer") return;
+
+            //Debug.Log("Tag = "+other.tag);
             Destroy(Instantiate(Bolt_Particle, transform.position,Quaternion.identity),1f);
             //Instantiate(Bolt_Particle).transform.position = transform.position;
             

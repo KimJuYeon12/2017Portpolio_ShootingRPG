@@ -51,12 +51,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6933a2828d13312449e5c8c236a47396, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemySetName: EnemySet
   fireEnemy:
   - {fileID: 1858805893138806, guid: f2052c47021fc534b82a6e15d125e1f2, type: 2}
   - {fileID: 1911513097540220, guid: 80c89edd63890924dada3e54bdb78d84, type: 2}
   - {fileID: 1969639793978326, guid: 598a6cb05b70e774a96ca28a1b2d522f, type: 2}
   iceEnemy: []
   forestEnemy: []
+  enemyRespawnTime:
+  - 1
+  - 2
+  - 3
   initZ: 15
   fireBoss: {fileID: 1713264449332228, guid: d51c6d307856c71449b5c24a5e55f163, type: 2}
   iceBoss: {fileID: 1965704377883850, guid: 539bea108e250034281ed5eb15556608, type: 2}
@@ -66,10 +71,6 @@ MonoBehaviour:
   bossStartWaitTime: 1
   bossIntervalWaitTime: 1
   bossMoveSpeed: 10
-  enemyRespawnTime:
-  - 1
-  - 2
-  - 3
   mapType: 0
   generateRandom: 1
   patternIntervalTime: 5
