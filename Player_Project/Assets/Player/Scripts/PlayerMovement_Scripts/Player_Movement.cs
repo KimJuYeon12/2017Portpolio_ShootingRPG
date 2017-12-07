@@ -8,7 +8,7 @@ namespace Player
     {
         private int Layermask = 1 << 11;
         private GameObject Player;
-        public Rigidbody Player_rb;
+        Rigidbody Player_rb;
         float L_LimitX = 0;
         float R_LimitX = 10;
 
