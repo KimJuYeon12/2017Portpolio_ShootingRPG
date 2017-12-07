@@ -20,17 +20,68 @@ namespace jiyong{
 
 		SortedDictionary<int, GameObject> dic = new SortedDictionary<int, GameObject>();
 
-
 		void Awake(){
 			im = GameObject.Find("InfoManager").GetComponent<InfoManager>();
 			spawnPlayer (im.playerType);
 			player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
 			currentTime = maxTime;
+			setSkillImage (); // 직업 & 스킬등록에 따른 스킬슬롯 이미지 변경
 		}
 
 		void Update () {
 			manaText.text = mana.ToString ();
 			UpdateTimer ();
+		}
+
+		void setSkillImage() {
+			im.loadSkill ();
+			Image[] SkillBtn = new Image[3];
+			SkillBtn [0] = GameObject.Find ("Skill").GetComponent<Image> ();
+			SkillBtn [1] = GameObject.Find ("Skill (1)").GetComponent<Image> ();
+			SkillBtn [2] = GameObject.Find ("Skill (2)").GetComponent<Image> ();
+
+			Sprite[] icon = new Sprite[7];
+			switch (im.playerType) { /// 이미지 변경 후 수정할 것
+			case 1: // 전사
+				icon [1] = Resources.Load<Sprite> ("SkillIcon/1");
+				icon [2] = Resources.Load<Sprite> ("SkillIcon/2");
+				icon [3] = Resources.Load<Sprite> ("SkillIcon/3");
+				icon [4] = Resources.Load<Sprite> ("SkillIcon/4");
+				icon [5] = Resources.Load<Sprite> ("SkillIcon/5");
+				icon [6] = Resources.Load<Sprite> ("SkillIcon/6");
+
+				// pos >> 1, 2, 3 : 클릭 스킬 // 4, 5, 6 : 터치 스킬
+				SkillBtn[0].sprite = icon[im.warriorSlot_pos[1]];
+				SkillBtn[1].sprite = icon[im.warriorSlot_pos[2]];
+				SkillBtn[2].sprite = icon[im.warriorSlot_pos[3]];
+				break;
+			case 2: // 궁수
+				icon [1] = Resources.Load<Sprite> ("SkillIcon/1");
+				icon [2] = Resources.Load<Sprite> ("SkillIcon/2");
+				icon [3] = Resources.Load<Sprite> ("SkillIcon/3");
+				icon [4] = Resources.Load<Sprite> ("SkillIcon/4");
+				icon [5] = Resources.Load<Sprite> ("SkillIcon/5");
+				icon [6] = Resources.Load<Sprite> ("SkillIcon/6");
+
+				// pos >> 1, 2, 3 : 클릭 스킬 // 4, 5, 6 : 터치 스킬
+				SkillBtn [0].sprite = icon [im.archerSlot_pos[1]];
+				SkillBtn [1].sprite = icon [im.archerSlot_pos[2]];
+				SkillBtn [2].sprite = icon [im.archerSlot_pos[3]];
+				break;
+			case 3: // 마법사
+				icon [1] = Resources.Load<Sprite> ("SkillIcon/1");
+				icon [2] = Resources.Load<Sprite> ("SkillIcon/2");
+				icon [3] = Resources.Load<Sprite> ("SkillIcon/3");
+				icon [4] = Resources.Load<Sprite> ("SkillIcon/4");
+				icon [5] = Resources.Load<Sprite> ("SkillIcon/5");
+				icon [6] = Resources.Load<Sprite> ("SkillIcon/6");
+
+				// pos >> 1, 2, 3 : 클릭 스킬 // 4, 5, 6 : 터치 스킬
+				SkillBtn [0].sprite = icon [im.magicianSlot_pos[1]];
+				SkillBtn [1].sprite = icon [im.magicianSlot_pos[2]];
+				SkillBtn [2].sprite = icon [im.magicianSlot_pos[3]];
+				break;
+			}
 		}
 
 		// num개만큼 상단 블럭 삭제 // 스킬 사용 시 호출
@@ -87,10 +138,12 @@ namespace jiyong{
 	*/
 		private void spawnPlayer (int type) 
 		{
+			Debug.Log ("Player SPAWN !@!$!@%!%!");
 			switch (type) 
 			{
 			case 1: // 전사
 				Instantiate(Resources.Load ("Player 1") as GameObject); // 프리팹에서 오브젝트 가져오기
+
 				break;
 			case 2: // 궁수
 				Instantiate(Resources.Load ("Player 2") as GameObject); // 프리팹에서 오브젝트 가져오기
