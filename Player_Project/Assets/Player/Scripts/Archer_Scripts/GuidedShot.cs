@@ -1,12 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 namespace Player
 { 
 //유도샷
 public class GuidedShot : ArcherShot    
 {
-    public GameObject[] TargetArr;
+    //public Transform[] TargetArr;
     AnimationCurve GuidedShot_ac;
     Vector3 Setting_Angle;//총구의 위치 초기화
     Vector3 Setting_Position;
@@ -15,6 +16,8 @@ public class GuidedShot : ArcherShot
     private float Distance = 2;
     private Rigidbody Spawn_rb;
     private int Min_idx;
+    private GameObject Player;
+    private GameObject EnemySet;
 
 
     public GuidedShot(GameObject Bolt, GameObject Shot_Spawn, GameObject Shot_Spawn_Point, int Shot_Level, AnimationCurve GuidedShot_ac)
@@ -25,43 +28,60 @@ public class GuidedShot : ArcherShot
         //애니메이션 연결
         //처음에 미사일이 생성될 때 자연스레 퍼져서 나오는 듯한 효과 생각
 
-        Setting_Angle.Set(0, -(Angle * (Shot_Level - 1)) / 2,0 );
-        Spawn_rb = Shot_Spawn.GetComponent<Rigidbody>();
-    }
+            Setting_Angle.Set(0, -(Angle * (Shot_Level - 1)) / 2,0 );
+            Spawn_rb = Shot_Spawn.GetComponent<Rigidbody>();
+            Player = GameObject.FindGameObjectWithTag("Player");
+            EnemySet = GameObject.Find("EnemySet");
+        }
 
 
     public override void Shot(){}
 
+        //타겟리스트에 목표물들 담기
+        public List<Transform> Make_TargetArr()
+        {
+            List<Transform> TargetArr = new List<Transform>();
 
-    //처음에 타겟을 계산 하는 부분
-    public int Set_Target()
+            foreach(var v in EnemySet.GetComponentsInChildren<Transform>())
+            {
+                TargetArr.Add(v);
+            }
+            return TargetArr;
+
+        }
+
+
+        //처음에 타겟을 계산 하는 부분
+        public int Set_Target(List<Transform> TargetArr)
     {
-        GameObject Player = GameObject.FindGameObjectWithTag("Player");
-        TargetArr = GameObject.FindGameObjectsWithTag("Enemy");
+            //TargetArr = GameObject.FindGameObjectsWithTag("Enemy");
+            //처음에 타겟위치 판단해서 처리
 
-        float min_Len = Vector3.Distance(Shot_Spawn.transform.position, TargetArr[0].transform.position);
+            float min_Len = /*Vector3.Distance(Shot_Spawn.transform.position, TargetArr[0].transform.position)*/100f;
         float new_Len;
         int min_idx = 0;
 
-        for (int i = 1; i < TargetArr.Length; i++)
-        {
-            new_Len = Vector3.Distance(Shot_Spawn.transform.position,TargetArr[i].transform.position);
-            if (new_Len < min_Len && (Player.transform.position.z+5 < TargetArr[i].transform.position.z))
+            for (int i = 0; i < TargetArr.Count; i++)
             {
-                min_idx = i;
-                min_Len = new_Len;
+                if (Player.transform.position.z + 5 > TargetArr[i].position.z) continue;
+
+                new_Len = Vector3.Distance(Shot_Spawn.transform.position, TargetArr[i].position);
+                if (new_Len < min_Len)
+                {
+                    min_idx = i;
+                    min_Len = new_Len;
+                }
             }
-        }
-        return min_idx;
+            return min_idx;
     }
 
 
 
 
 
-    public GameObject[] Generate_Bolt(int idx)
+    public GameObject[] Generate_Bolt(int idx, List<Transform> TargetArr)
     {
-        Quaternion newRotation = Quaternion.LookRotation((TargetArr[idx].transform.position - Shot_Spawn.transform.position));
+        Quaternion newRotation = Quaternion.LookRotation((TargetArr[idx].position - Shot_Spawn.transform.position));
         Shot_Spawn.transform.localRotation = newRotation;
         //총구가 타겟을 바라보게 만듬
        
@@ -92,23 +112,25 @@ public class GuidedShot : ArcherShot
 
 
 
-    public IEnumerator GuidedShot_(GameObject Bolt, int idx, GameObject[] BoltArr)
+    public IEnumerator GuidedShot_(GameObject Bolt, int idx, List<Transform> TargetArr)
     {
 
             for (float j = 0.0f; j < 2f; j = j + Time.deltaTime)
             {
-                Bolt.transform.LookAt(TargetArr[idx].transform);               
-                Bolt.transform.position = Vector3.Lerp(Bolt.transform.position, TargetArr[idx].transform.position, 0.08f);
+                Bolt.transform.LookAt(TargetArr[idx]);
+                Bolt.transform.position = Vector3.Lerp(Bolt.transform.position, TargetArr[idx].position, 0.08f*(j*j*10));
+                //Bolt.transform.position = Vector3.MoveTowards(Bolt.transform.position, TargetArr[idx].transform.position, 0.08f);
                 yield return null;
 
                 if (!Bolt) break;
-                 if (Vector3.Distance(Bolt.transform.position, TargetArr[idx].transform.position) < 0.5f)
+                if (!TargetArr[idx]) break;
+                if (Vector3.Distance(Bolt.transform.position, TargetArr[idx].position) < 0.5f)
                 {
-                break;
+                    break;
                 }
 
             }
-    }
+        }
 }
 
 }

@@ -39,18 +39,20 @@ namespace Enemy
                 return;
             }
 
-            if (gameObject.transform.parent)
-            {
-                Destroy(gameObject.transform.parent.gameObject);
-                Debug.Log("부모 오브젝트까지 같이 사라짐");
-            }
+            //if (gameObject.transform.parent)
+            //{
+            //    Destroy(gameObject.transform.parent.gameObject);
+            //    Debug.Log("부모 오브젝트까지 같이 사라짐");
+            //}
 
             if (dieParticle != null)
             {
                 Destroy(Instantiate(dieParticle, transform.position, dieParticle.transform.rotation), 1.5f);
             }
-          
+
+            //if(GM.mana <= 4)
             GM.createBlock(transform.position);
+
             Destroy(gameObject);
 
         }   

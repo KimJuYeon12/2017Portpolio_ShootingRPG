@@ -40,7 +40,7 @@ namespace Player
         void Awake()
         {
             Shot_Spawn_Point = gameObject;
-            GuidedShot_Lev = 5;
+            GuidedShot_Lev = 1;
             //MultiShot_Lev = 1;//우선 임의의 값을 넣음
             LazerShot_Lev = 3;
             Explode_Lev = 1;
@@ -52,10 +52,38 @@ namespace Player
             Explode_Shot = new Explode_Trap_Shot(Bolt, Shot_Spawn, gameObject, LazerShot_Lev,Explode);
 
         }
-	    // Update is called once per frame
+        // Update is called once per frame
+        void Start()
+        {
+            StartCoroutine(Test());
+        }
+        IEnumerator Test()
+        {
+            while(true)
+            {
+
+                List<Transform> TargetArr = Guided.Make_TargetArr();
+                int idx = Guided.Set_Target(TargetArr);
+
+                //탄알을 생성
+                GameObject[] Bolt = new GameObject[GuidedShot_Lev];
+                Bolt = Guided.Generate_Bolt(idx, TargetArr);
+
+
+                //생성된 탄알의 갯수만큼 루프를 돌면서 탄알을 발사한다.
+                for (int i = 0; i < GuidedShot_Lev; i++)
+                {
+                    Bolt_Management Attribute = Bolt[i].GetComponent<Bolt_Management>();
+                    Attribute.Bolt_attribute = "Guided";
+                    StartCoroutine(Guided.GuidedShot_(Bolt[i], idx, TargetArr));
+                }
+                yield return new WaitForSeconds(Time.deltaTime*0.1f);
+            }
+        }
         void FixedUpdate () 
         {
-            Mul_Shot();
+            //Guided_Shot();
+            
         }
 
 
@@ -101,23 +129,23 @@ namespace Player
         
             if (Input.GetButtonDown("Fire1"))
             {
-                //타겟을 설정하고 해당타겟의 인덱스를 받아옴
-                //인덱스를 가이드 클레스 내부에 만들어버리면 플레이어가 움직일 때 이미 발사된
-                //탄알도 같이 움직여져버리므로 밖에서 따로 선언 후 받아와서 아래에서 사용한다.
-                int idx = Guided.Set_Target();
+                ////타겟을 설정하고 해당타겟의 인덱스를 받아옴
+                ////인덱스를 가이드 클레스 내부에 만들어버리면 플레이어가 움직일 때 이미 발사된
+                ////탄알도 같이 움직여져버리므로 밖에서 따로 선언 후 받아와서 아래에서 사용한다.
+                //int idx = Guided.Set_Target();
 
-                //탄알을 생성
-                GameObject[] Bolt = new GameObject[GuidedShot_Lev];
-                Bolt = Guided.Generate_Bolt(idx);
+                ////탄알을 생성
+                //GameObject[] Bolt = new GameObject[GuidedShot_Lev];
+                //Bolt = Guided.Generate_Bolt(idx);
 
 
-                //생성된 탄알의 갯수만큼 루프를 돌면서 탄알을 발사한다.
-                for (int i = 0; i < GuidedShot_Lev; i++)
-                {
-                    Bolt_Management Attribute = Bolt[i].GetComponent<Bolt_Management>();
-                    Attribute.Bolt_attribute = "Guided";
-                    StartCoroutine(Guided.GuidedShot_(Bolt[i], idx, Bolt));
-                }
+                ////생성된 탄알의 갯수만큼 루프를 돌면서 탄알을 발사한다.
+                //for (int i = 0; i < GuidedShot_Lev; i++)
+                //{
+                //    Bolt_Management Attribute = Bolt[i].GetComponent<Bolt_Management>();
+                //    Attribute.Bolt_attribute = "Guided";
+                //    StartCoroutine(Guided.GuidedShot_(Bolt[i], idx, Bolt));
+                //}
             }
         }
     }

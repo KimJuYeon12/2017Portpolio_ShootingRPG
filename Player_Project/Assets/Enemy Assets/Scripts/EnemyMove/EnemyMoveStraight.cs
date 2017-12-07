@@ -41,12 +41,12 @@ namespace Enemy
             //rb.transform.Rotate(new Vector3(0f, 10f, 0f));
         }
 
-        private void OnTriggerEnter(Collider other)
-        {
-            if (other.tag == outerTagName)
-            {
-                Destroy(gameObject, 3f);
-            }
-        }
+        //private void OnTriggerEnter(Collider other)
+        //{
+        //    if (other.tag == outerTagName)
+        //    {
+        //        Destroy(gameObject);
+        //    }
+        //}
     }
 }

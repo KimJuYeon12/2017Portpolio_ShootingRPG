@@ -6,10 +6,13 @@ using UnityEngine;
 public class EnemyGeneratePattern : MonoBehaviour
 {
     [Header("- Enemy Object")]
+    public string enemySetName = "EnemySet";
     public GameObject[] fireEnemy;
 
     public GameObject[] iceEnemy;
     public GameObject[] forestEnemy;
+
+    public float[] enemyRespawnTime = { 1f, 2f, 3f }; //수정
 
     [Tooltip("적 생성 위치(카메라 기준)")]
     public float initZ = 8f;
@@ -35,11 +38,11 @@ public class EnemyGeneratePattern : MonoBehaviour
     public float bossIntervalWaitTime = 1f;
 
     public float bossMoveSpeed = 10f;
-    
+
+    private GameObject enemySet;
     private GameObject[] enemy;
     private GameObject boss;
     
-    public float[] enemyRespawnTime = { 1f, 2f, 3f }; //수정
 
     private GameObject mainCamera;
 
@@ -84,6 +87,7 @@ public class EnemyGeneratePattern : MonoBehaviour
     private void Awake()
     {
         mainCamera = Camera.main.gameObject;
+        enemySet = GameObject.Find(enemySetName);
     }
 
     // Use this for initialization
@@ -181,11 +185,12 @@ public class EnemyGeneratePattern : MonoBehaviour
                 {
                     initX = Random.Range(mainCamera.transform.position.x - 4.5f, mainCamera.transform.position.x + 4.5f);
                     genPosZ = mainCamera.transform.position.z + initZ;
-                    Instantiate(enemy[i], new Vector3(initX, 0f, genPosZ), Quaternion.identity);
+                    Instantiate(enemy[i], new Vector3(initX, 0f, genPosZ), Quaternion.identity, enemySet.transform);
+
                 }
             }
 
-            if (timer == 10f)
+            if (timer == 1000f)
             {
                 timer = 0f;
             }

@@ -11,6 +11,11 @@ TagManager:
   - New
   - Resource
   - PlayerBolt
+  - Bottom
+  - SkillSlot
+  - Drop
+  - EnemyBolt
+  - Outer
   layers:
   - Default
   - TransparentFX
