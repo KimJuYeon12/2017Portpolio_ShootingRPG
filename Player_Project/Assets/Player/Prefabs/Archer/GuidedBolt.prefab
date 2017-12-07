@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4181313292007482}
   - component: {fileID: 198176835811885034}
   - component: {fileID: 199713571449109448}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Smoke
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 4993049822158042}
   - component: {fileID: 198240596707626614}
   - component: {fileID: 199687881492157000}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: PixelFlameThrowerBlue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   - component: {fileID: 4075117080529508}
   - component: {fileID: 198233733191509838}
   - component: {fileID: 199082805377983366}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: PowerupHealth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ GameObject:
   - component: {fileID: 4226703361246160}
   - component: {fileID: 33709509965296518}
   - component: {fileID: 23950455419080050}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91,7 +91,7 @@ GameObject:
   - component: {fileID: 114753424143077562}
   - component: {fileID: 54488048268785546}
   - component: {fileID: 114085268092942698}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: GuidedBolt
   m_TagString: PlayerBolt
   m_Icon: {fileID: 0}
@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 65877002301901698}
   - component: {fileID: 114249700675359390}
   - component: {fileID: 54237488154442508}
-  m_Layer: 11
+  m_Layer: 13
   m_Name: block
   m_TagString: Drop
   m_Icon: {fileID: 0}
@@ -126,7 +126,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4099455856657066}
   - component: {fileID: 212688056905709216}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -143,7 +143,7 @@ GameObject:
   - component: {fileID: 4746288344803674}
   - component: {fileID: 33154693750962002}
   - component: {fileID: 23351112441520826}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}

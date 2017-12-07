@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4415737437547674}
   - component: {fileID: 137128286113098502}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: mesh_Policeman
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35,7 +35,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4262858354108588}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Hand_Left_jnt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53,7 +53,7 @@ GameObject:
   - component: {fileID: 33636706867979688}
   - component: {fileID: 114506388835338568}
   - component: {fileID: 136275138794256166}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: AttackRage
   m_TagString: EnemyBolt
   m_Icon: {fileID: 0}
@@ -68,7 +68,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4079387729775280}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: UpperLeg_Right_jnt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -83,7 +83,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4423077230800884}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LowerLeg_Right_jnt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,7 +98,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4270777122487046}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LowerArm_Left_jnt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -114,7 +114,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4869777912972234}
   - component: {fileID: 137087146998143204}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: mesh_Sheriff
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -129,7 +129,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4462714684397646}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: UpperArm_Right_jnt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -145,7 +145,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4901027993764248}
   - component: {fileID: 137598620836483116}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: mesh_Punk
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -160,7 +160,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4014196918285100}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Foot_Left_jnt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -175,7 +175,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4972827148260040}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Hat_jnt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -190,7 +190,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4075528604269094}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Hips_jnt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -205,7 +205,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4582492080014946}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: UpperArm_Left_jnt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -221,7 +221,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4876760794800068}
   - component: {fileID: 137796079583511852}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: mesh_Prostitute
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -236,7 +236,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4677185767378732}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Body_jnt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -252,7 +252,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4069873044581368}
   - component: {fileID: 137586249669240360}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: mesh_FireFighter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -267,7 +267,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4234897416143528}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Hand_Right_jnt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -283,7 +283,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4431968473720532}
   - component: {fileID: 137375113468350948}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: mesh_Robber
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -299,7 +299,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4601202965576706}
   - component: {fileID: 95479406991294420}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SimplePeople_RoadWorker_Brown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -315,7 +315,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4409211225290154}
   - component: {fileID: 137828054872591566}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: mesh_Trucker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -331,7 +331,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4920514716221616}
   - component: {fileID: 137334842651519442}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: mesh_StreetMan
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -347,7 +347,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4779966454411276}
   - component: {fileID: 137693722185084186}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: mesh_Woman
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -362,7 +362,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4443482148887656}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LowerLeg_Left_jnt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -377,7 +377,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4283755606369680}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Foot_Right_jnt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -392,7 +392,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4815703199016140}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Root_jnt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -407,7 +407,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4700781285652732}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Head_jnt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -423,7 +423,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4848907488406138}
   - component: {fileID: 137694574236681242}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: mesh_Hobo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -438,7 +438,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4908724840514150}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LowerArm_Right_jnt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -454,7 +454,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4588732361159588}
   - component: {fileID: 137406928263985220}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: mesh_Pimp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -470,7 +470,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4452833983134004}
   - component: {fileID: 137153424126978232}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: mesh_BusinessMan
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -486,7 +486,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4746568298061884}
   - component: {fileID: 137829046902918502}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: mesh_Roadworker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -502,7 +502,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4514765497330360}
   - component: {fileID: 137629659161926250}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: mesh_Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -518,7 +518,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4942205577834202}
   - component: {fileID: 137729073994246152}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: mesh_RiotCop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -533,7 +533,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4427250111413968}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Spine_jnt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -548,7 +548,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4793813581980116}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: UpperLeg_Left_jnt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -568,7 +568,7 @@ GameObject:
   - component: {fileID: 114247693469900472}
   - component: {fileID: 114037299086322050}
   - component: {fileID: 65724957627357796}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Enemy(Straight, Around)
   m_TagString: Enemy
   m_Icon: {fileID: 0}

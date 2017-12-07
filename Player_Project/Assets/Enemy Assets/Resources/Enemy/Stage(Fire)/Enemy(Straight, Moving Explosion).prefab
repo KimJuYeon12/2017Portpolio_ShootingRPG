@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4600851259451904}
   - component: {fileID: 33771609038331286}
   - component: {fileID: 23967522192327490}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BombBall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 4144550935926562}
   - component: {fileID: 33949608785691186}
   - component: {fileID: 23587492589784134}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BombTop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   - component: {fileID: 4684216791597780}
   - component: {fileID: 198724366848217628}
   - component: {fileID: 199540745457929534}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Glow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ GameObject:
   - component: {fileID: 4584143520157456}
   - component: {fileID: 198749595279848754}
   - component: {fileID: 199900250585392530}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: PickupExplosionYellow(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 114812232202275864}
   - component: {fileID: 114463577971328314}
   - component: {fileID: 114437069541556990}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Enemy(Straight, Moving Explosion)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -111,7 +111,7 @@ GameObject:
   - component: {fileID: 4053531339283380}
   - component: {fileID: 33812133449621872}
   - component: {fileID: 23725644903872476}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BombWick
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -127,7 +127,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4248343161441810}
   - component: {fileID: 111498946349209700}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BombBall
   m_TagString: Untagged
   m_Icon: {fileID: 0}

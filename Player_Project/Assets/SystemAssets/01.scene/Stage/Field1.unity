@@ -442,7 +442,7 @@ GameObject:
   - component: {fileID: 460484818}
   - component: {fileID: 460484817}
   - component: {fileID: 460484822}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: BottomCollider
   m_TagString: Bottom
   m_Icon: {fileID: 0}

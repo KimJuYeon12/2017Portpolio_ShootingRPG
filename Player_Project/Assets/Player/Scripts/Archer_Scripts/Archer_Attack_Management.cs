@@ -62,21 +62,24 @@ namespace Player
             while(true)
             {
 
-                List<Transform> TargetArr = Guided.Make_TargetArr();
-                int idx = Guided.Set_Target(TargetArr);
+                //List<Transform> TargetArr = Guided.Make_TargetArr();
+                //int idx = Guided.Set_Target(TargetArr);
 
-                //탄알을 생성
-                GameObject[] Bolt = new GameObject[GuidedShot_Lev];
-                Bolt = Guided.Generate_Bolt(idx, TargetArr);
+                ////탄알을 생성
+                //GameObject[] Bolt = new GameObject[GuidedShot_Lev];
+                //Bolt = Guided.Generate_Bolt(idx, TargetArr);
 
 
-                //생성된 탄알의 갯수만큼 루프를 돌면서 탄알을 발사한다.
-                for (int i = 0; i < GuidedShot_Lev; i++)
-                {
-                    Bolt_Management Attribute = Bolt[i].GetComponent<Bolt_Management>();
-                    Attribute.Bolt_attribute = "Guided";
-                    StartCoroutine(Guided.GuidedShot_(Bolt[i], idx, TargetArr));
-                }
+                ////생성된 탄알의 갯수만큼 루프를 돌면서 탄알을 발사한다.
+                //for (int i = 0; i < GuidedShot_Lev; i++)
+                //{
+                //    Bolt_Management Attribute = Bolt[i].GetComponent<Bolt_Management>();
+                //    Attribute.Bolt_attribute = "Guided";
+                //    StartCoroutine(Guided.GuidedShot_(Bolt[i], idx, TargetArr));
+                //}
+
+
+                Mul.Shot();
                 yield return new WaitForSeconds(Time.deltaTime*0.1f);
             }
         }
