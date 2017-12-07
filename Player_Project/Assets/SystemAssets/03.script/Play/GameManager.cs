@@ -143,7 +143,6 @@ namespace jiyong{
 			{
 			case 1: // 전사
 				Instantiate(Resources.Load ("Player 1") as GameObject); // 프리팹에서 오브젝트 가져오기
-
 				break;
 			case 2: // 궁수
 				Instantiate(Resources.Load ("Player 2") as GameObject); // 프리팹에서 오브젝트 가져오기
