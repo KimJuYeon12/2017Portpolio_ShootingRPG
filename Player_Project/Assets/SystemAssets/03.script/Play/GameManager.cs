@@ -33,6 +33,18 @@ namespace jiyong{
 			UpdateTimer ();
 		}
 
+<<<<<<< HEAD
+=======
+		void setSkillImage() {
+			Image SkillBtn = new Image[2];
+			SkillBtn [0] = GameObject.Find ("Skill").GetComponent<Image> ();
+			SkillBtn [1] = GameObject.Find ("Skill (1)").GetComponent<Image> ();
+			SkillBtn [2] = GameObject.Find ("Skill (2)").GetComponent<Image> ();
+
+
+		}
+
+>>>>>>> parent of bf50c3a... 게임씬 스킬 직업별 이미지 연결 & UI 꼬인 것 수정
 		// num개만큼 상단 블럭 삭제 // 스킬 사용 시 호출
 		public void destoryBlcok(int num)
 		{
