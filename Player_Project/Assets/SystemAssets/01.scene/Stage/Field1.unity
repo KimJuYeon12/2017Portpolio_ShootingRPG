@@ -201,7 +201,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 68875938}
   m_LocalRotation: {x: 0.7071068, y: -0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 5, y: 5, z: 4.9}
+  m_LocalPosition: {x: 5, y: 5, z: 9.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 164562597}
@@ -1212,7 +1212,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28cbb41a7de1b884e96d8dd70f8b0e9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player_rb: {fileID: 0}
   Power: 0.2
   Anim: {fileID: 3511}
 --- !u!33 &780855411
@@ -2380,15 +2379,7 @@ MonoBehaviour:
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-<<<<<<< HEAD
-<<<<<<< HEAD
-  m_FillMethod: 4
-=======
   m_FillMethod: 0
->>>>>>> 0de3159e2e68e78c56a1f4e19a1939aaa636d667
-=======
-  m_FillMethod: 0
->>>>>>> parent of bf50c3a... 게임씬 스킬 직업별 이미지 연결 & UI 꼬인 것 수정
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
@@ -2461,13 +2452,8 @@ RectTransform:
   m_Father: {fileID: 911712093}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<< HEAD
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-=======
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
->>>>>>> parent of bf50c3a... 게임씬 스킬 직업별 이미지 연결 & UI 꼬인 것 수정
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2544,7 +2530,6 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 712026664}
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-<<<<<<< HEAD
 --- !u!1 &1976926305
 GameObject:
   m_ObjectHideFlags: 0
@@ -2606,5 +2591,3 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1976926305}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
-=======
->>>>>>> parent of bf50c3a... 게임씬 스킬 직업별 이미지 연결 & UI 꼬인 것 수정
