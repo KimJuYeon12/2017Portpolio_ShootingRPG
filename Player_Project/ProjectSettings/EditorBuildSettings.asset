@@ -17,8 +17,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/SystemAssets/01.scene/Skill.unity
     guid: 48cf81cfd6f5bb64cb4f61e90426be32
-  - enabled: 1
-    path: Assets/SystemAssets/01.scene/Stage/Field1.unity
+  - enabled: 0
+    path: Assets/__DELETED_GUID_Trash/4fdabe65f430cd44ba2033d818b7449e
     guid: 4fdabe65f430cd44ba2033d818b7449e
   - enabled: 1
     path: Assets/SystemAssets/01.scene/Stage/Field2.unity
@@ -32,3 +32,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/SystemAssets/01.scene/Stage/Fire1.unity
     guid: 1894c1e7d67689c44a722d1f97df99f8
+  - enabled: 1
+    path: Assets/SystemAssets/01.scene/Stage/Field1.unity
+    guid: fef6a7202af85a448b8289f3b8006373
