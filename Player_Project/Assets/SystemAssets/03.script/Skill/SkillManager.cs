@@ -27,6 +27,7 @@ namespace jiyong{
 			LoadData ();
 		}
 
+		// 1, 3, 5 : 클릭 스킬 // 2, 4, 6 : 터치 스킬
 		void LoadData()
 		{
 			for (int i = 1; i < skillNum; i++) {
