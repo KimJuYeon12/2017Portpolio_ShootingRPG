@@ -6,10 +6,10 @@ public class DestroyObject : MonoBehaviour {
 
 
 
-    private void OnTriggerExit(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         Debug.Log("들어옴");
-        if (other.tag == "Drop") return;
+        //if (other.tag == "Drop") return;
         Destroy(other.gameObject);
 
     }

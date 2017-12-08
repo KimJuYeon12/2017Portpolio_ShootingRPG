@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4210308458772284}
   - component: {fileID: 198277607006281198}
   - component: {fileID: 199569385333826426}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BoostPadRed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 4246729588290346}
   - component: {fileID: 198530860331964778}
   - component: {fileID: 199660144997919186}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: VerticalRing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   - component: {fileID: 4789425044829460}
   - component: {fileID: 198606988303579230}
   - component: {fileID: 199690856014874024}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: HorizontalGlow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -75,7 +75,7 @@ GameObject:
   - component: {fileID: 114218976731980758}
   - component: {fileID: 54616786325214240}
   - component: {fileID: 114771948162222066}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: MovingExplosion
   m_TagString: EnemyBolt
   m_Icon: {fileID: 0}
@@ -256,7 +256,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 96620526
+  randomSeed: -977337231
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -3555,7 +3555,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 0
-  randomSeed: 1680525213
+  randomSeed: -1336842376
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -6854,7 +6854,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 0
-  randomSeed: 364605485
+  randomSeed: 288453985
   InitialModule:
     serializedVersion: 3
     enabled: 1
